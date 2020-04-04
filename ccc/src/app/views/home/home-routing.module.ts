@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home.component';
 import { HomeNavComponent } from './home-nav';
+import { BannerHomeComponent } from './index/banner-home';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
 export const Declarations = [
   IndexComponent,
   HomeComponent,
-  HomeNavComponent
+  HomeNavComponent,
+  BannerHomeComponent
 ];
 
 @NgModule({
