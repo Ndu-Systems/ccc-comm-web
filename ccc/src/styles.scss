@@ -33,3 +33,12 @@ body { margin: 0; font-family: 'Montserrat', sans-serif; }
 ::-webkit-scrollbar {
   display: none;
 }
+
+.error {
+  background: #F8BB56;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 500;
+}

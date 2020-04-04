@@ -3,16 +3,18 @@
     <div class="form-container">
       <form [formGroup]="rForm">
         <h1 class="form-heading">Get started</h1>
+
         <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Email Address</mat-label>
           <input matInput placeholder="Email" formControlName="Email" MatFormFieldControl type="email" required>
-          <mat-icon matSuffix >person</mat-icon>
+          <mat-icon matSuffix >mail_outline</mat-icon>
           <mat-error *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">a valid email address is
             required</mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-group" appearance="outline">
-          <mat-label>Outline form field</mat-label>
-          <input matInput placeholder="Pin" formControlName="Password" MatFormFieldControl
+          <mat-label>4 digit pin</mat-label>
+          <input matInput placeholder="Pin"  formControlName="Password" MatFormFieldControl maxlength="4"
             [type]="hidePassword ? 'password' : 'text'" required>
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'">
             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>

@@ -1,3 +1,75 @@
-<p>
-  sign-up works!
-</p>
+<div class="sign-up">
+  <div class="form">
+    <div class="form-container">
+      <div class="error" *ngIf="error">
+        {{error}}
+      </div>
+      <form [formGroup]="rForm">
+        <h1 class="form-heading">Create new account</h1>
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Enter your first name</mat-label>
+          <input matInput placeholder="First Name" formControlName="FirstName" MatFormFieldControl type="text" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">a valid First
+            name is
+            required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Enter your surname</mat-label>
+          <input matInput placeholder="Surname" formControlName="Surname" MatFormFieldControl type="text" required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">a valid surname is
+            required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Enter contact number</mat-label>
+          <input matInput placeholder="ContactNumber" formControlName="ContactNumber"  maxlength="13" MatFormFieldControl type="text" required>
+          <mat-icon matSuffix>stay_primary_portrait</mat-icon>
+          <mat-error *ngIf="!rForm.controls['ContactNumber'].valid && rForm.controls['ContactNumber'].touched">
+            a valid ContactNumber (10 Characters long) is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Date of birth</mat-label>
+          <input matInput placeholder="DOB" formControlName="DOB" (ngModelChange)="calculateAge(rForm.value)" MatFormFieldControl [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="dobDate"></mat-datepicker>
+           <mat-error *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">a valid date of birth is
+            required</mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Email address</mat-label>
+          <input matInput placeholder="Email" formControlName="Email" MatFormFieldControl type="email" required>
+          <mat-icon matSuffix>mail_outline</mat-icon>
+          <mat-error *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">a valid email address is
+            required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>4 digit pin</mat-label>
+          <input matInput placeholder="Pin" formControlName="Password"  maxlength="4" MatFormFieldControl
+            [type]="hidePassword ? 'password' : 'text'" required>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="!rForm.controls['Password'].valid && rForm.controls['Password'].touched">your password is
+            required</mat-error>
+        </mat-form-field>
+
+        <div class="cta">
+          <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">Register now
+          </button>
+          <a routerLink="/get-started" class="cta">I have an account</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

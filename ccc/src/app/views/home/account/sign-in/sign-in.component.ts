@@ -42,8 +42,8 @@ export class SignInComponent implements OnInit {
   onSubmit(model: SignInModel) {
     this.accountService.signIn(model).subscribe(data => {
       if (data.Email) {
-        this.routeTo.navigate(['/dashboard']);
+        this.routeTo.navigate([ this.returnUrl ]);
       }
-    })
+    });
   }
 }
