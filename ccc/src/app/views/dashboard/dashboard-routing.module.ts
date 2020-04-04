@@ -5,11 +5,12 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { DashNavigationComponent } from './dash-navigation/dash-navigation.component';
 import { TakingSelftestComponent } from './taking-selftest/taking-selftest.component';
+import { AuthGuard } from 'src/app/_guards';
 
 
 const routes: Routes = [
   {
-    path: '', component: DashboardComponent,
+    path: '', component: DashboardComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: TakingSelftestComponent },
       // { path: '', component: DashboardHomeComponent },

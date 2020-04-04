@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'http://localhost:8200/ccc-comm-api',
+  EMAIL_TEST: 'admin@ccc.com',
+  PASSWORD_TEST: '1234'
 };
 
 /*
