@@ -1,9 +1,11 @@
-$primary: #9980FA;
-$cloud-white: #F6F6F8;
-$white: #FFFFFF;
-$success: #43DDC1;
-$danger:#E5646E;
-$danger-light: #FF6A89;
-$grey: #A4B0BE;
+@import './colors';
+@import './grid';
+@import './forms';
+@import '../components/home/home';
 
-$gradient-primary: linear-gradient(56deg, rgba(137,141,244,1) 9%, rgba(217,128,250,1) 100%);
+
+
+
+ul {
+  list-style: none;
+}
