@@ -70,20 +70,53 @@
       }
 
       .form {
-          .heading{
-              color: $danger;
-          }
-        .question {
-            background: $cloud-white;
-            padding: .8rem 1rem;
-            border-radius: 10rem;
+        .heading {
+          color: $danger;
+        }
 
-            h3{
-                color: $black;
-                margin: 0;
-                font-weight: 600;
-                font-size: 1rem;
+        .question {
+          background: $cloud-white;
+          padding: .8rem 1rem;
+          border-radius: 10rem;
+
+          h3 {
+            color: $black;
+            margin: 0;
+            font-weight: 600;
+            font-size: 1rem;
+          }
+        }
+
+        .options {
+          padding: 2rem;
+
+          .cols-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+          }
+
+          .image {
+            height: 6rem;
+          }
+
+          .actions {
+            margin: 2rem 0;
+
+            .cta {
+              padding: .4rem 1.4rem;
+              border-radius: 15px;
+              font-weight: 700;
+              background: $success;
+              border: none;
+              color: $white;
             }
+            .secondary{
+              border: 2px solid $success;
+              background: none;
+              color: $success;
+            }
+          }
+
         }
       }
     }
