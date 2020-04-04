@@ -81,7 +81,6 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatSortModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
     MatTooltipModule,
   ],
   exports: [
@@ -126,7 +125,6 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatSortModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
     MatTooltipModule,
   ],
   providers: [

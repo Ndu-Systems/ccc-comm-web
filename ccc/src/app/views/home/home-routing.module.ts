@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home.component';
+import { HomeNavComponent } from './home-nav';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 ];
 export const Declarations = [
   IndexComponent,
-  HomeComponent
+  HomeComponent,
+  HomeNavComponent
 ];
 
 @NgModule({

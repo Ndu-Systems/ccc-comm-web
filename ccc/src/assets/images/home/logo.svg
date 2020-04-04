@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="706" height="256" viewBox="0 0 706 256">
+  <g id="logo" transform="translate(-416 -411)">
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="706" height="256" rx="25" transform="translate(416 411)" fill="#fff"/>
+    <g id="Group_76" data-name="Group 76" transform="translate(-89 46.538)">
+      <g id="Group_74" data-name="Group 74">
+        <path id="Path_11" data-name="Path 11" d="M399.054,126.55a8.7,8.7,0,0,1,0-17.409,8.7,8.7,0,0,0,0-17.409,8.7,8.7,0,0,1,0-17.409,26.114,26.114,0,0,1,0,52.227Z" transform="translate(581.305 391.917)" fill="#2f3542"/>
+        <path id="Path_12" data-name="Path 12" d="M399.054,163.154a8.7,8.7,0,0,1,0-17.409,43.523,43.523,0,0,0,0-87.045,8.7,8.7,0,0,1,0-17.409,60.932,60.932,0,0,1,0,121.863Z" transform="translate(581.305 390.133)" fill="#ff6a89"/>
+        <path id="Path_248" data-name="Path 248" d="M405.893,258.908a15.544,15.544,0,0,1,0-31.088,77.72,77.72,0,0,0,0-155.441,15.544,15.544,0,0,1,0-31.088,108.808,108.808,0,0,1,0,217.617Z" transform="translate(575.305 342.172)" fill="#43ddc1"/>
+      </g>
+      <text id="Community" transform="translate(626 446)" fill="#43ddc1" font-size="48" font-family="Montserrat-Black, Montserrat" font-weight="800"><tspan x="0" y="0">COMMUNITY</tspan></text>
+      <text id="Conquer_" data-name="Conquer " transform="translate(692 512)" fill="#ff6a89" font-size="48" font-family="Montserrat-Black, Montserrat" font-weight="800"><tspan x="0" y="0">CONQUER </tspan></text>
+      <text id="Coronavirus" transform="translate(719 568)" fill="#2f3542" font-size="29" font-family="Montserrat-Black, Montserrat" font-weight="800"><tspan x="0" y="0">CORONAVIRUS</tspan></text>
+    </g>
+  </g>
+</svg>
