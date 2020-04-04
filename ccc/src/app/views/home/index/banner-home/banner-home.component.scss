@@ -1,0 +1,117 @@
+@import '../../../../../assets/general/colors';
+
+.banner {
+  height: 67.438rem;
+  background: url('../../../../../assets/images/home/home-bg.svg');
+  background-repeat: no-repeat;
+  padding: 0 26rem;
+
+  @media only screen and (max-width: 600px) {
+    background: $white;
+    padding: 0 2.25rem;
+  }
+
+  .heading {
+    width: 46.5rem;
+
+    .col-1-of-1 {
+      padding-top: 7.813rem;
+
+      .welcome {
+        font-size: 1.563rem;
+        font-weight: 400;
+      }
+
+      .main-header {
+        font-size: 2.813rem;
+        font-weight: 800;
+        line-height: 1.438;
+
+        .hot {
+          display: block;
+        }
+      }
+
+      .secondary-header {
+        font-size: 1.125rem;
+        font-weight: 400;
+        width: 65%;
+        line-height: 1.88rem;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      .col-1-of-1 {
+       padding-top: 4.688rem;
+       .welcome {
+         font-size: 0.938rem;
+       }
+       .main-header {
+         font-size: 1.563rem;
+         width: 100%;
+       }
+       .secondary-header {
+         font-size: 0.75rem;
+         width: 100%;
+       }
+      }
+    }
+
+  }
+
+  .benefits {
+    width: 50rem;
+
+    .point {
+      display: grid;
+      grid-template-columns: 7% auto;
+      grid-gap: 0;
+
+      .text {
+        display: inline-block;
+        padding-left: 1rem;
+        font-size: 1.125rem;
+        margin-top: 0.4222rem;
+        font-weight: 400;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {width: 100%;
+    .point {
+      img {
+        height: 1.353rem;
+      }
+      .text {
+        font-size: 0.75rem;
+      }
+    }
+    }
+  }
+
+  .cta {
+    padding-top: 5rem;
+
+    .mat-button {
+      background: $primary;
+      color: $white;
+      font-weight: 900;
+      border-radius: 10rem;
+      font-size: 1.5rem;
+      height: 3.5rem;
+      width: 16.25rem;
+
+      @media only screen and (max-width: 600px) {
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+    }
+
+
+
+    @media only screen and (max-width: 600px) {
+      padding-top: 2rem;
+    }
+  }
+}
