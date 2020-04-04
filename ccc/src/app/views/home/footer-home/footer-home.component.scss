@@ -1,0 +1,65 @@
+@import '../../../../assets/general/colors';
+
+.footer-container {
+  padding: 5rem 15rem;
+  background: $cloud-white;
+
+  .col-1-of-4 {
+    .section {
+      .data {
+        h1 {
+          font-size: 1rem;
+
+          &.header {
+            font-weight: 900;
+          }
+
+          &.text {
+            font-weight: 500;
+          }
+
+        }
+
+        a {
+          color: #000;
+        }
+      }
+
+      &.rights {
+        margin-top: 0.5rem;
+
+        img {
+          height: 2.75rem;
+          width: 7.625rem;
+        }
+      }
+    }
+  }
+
+  .cta {
+    padding-top: 5rem;
+
+    .mat-button {
+      background: $primary;
+      color: $white;
+      font-weight: 900;
+      border-radius: 10rem;
+      height: 2.5rem;
+      width: 8.938rem;
+
+      @media only screen and (max-width: 600px) {
+        width: 7rem;
+        height: 2.5rem;
+        font-size: 0rem;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      padding-top: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 0.5rem 2rem;
+  }
+}

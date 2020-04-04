@@ -2,8 +2,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home.component';
-import { HomeNavComponent } from './home-nav';
+import { SolutionHomeComponent } from './index/solution-home';
 import { BannerHomeComponent } from './index/banner-home';
+import { HomeNavComponent } from './home-nav';
+import { SelectHomeComponent } from './index/select-home';
+import { FooterHomeComponent } from './footer-home';
 
 const routes: Routes = [
   {
@@ -16,8 +19,11 @@ const routes: Routes = [
 export const Declarations = [
   IndexComponent,
   HomeComponent,
+  SolutionHomeComponent,
+  BannerHomeComponent,
   HomeNavComponent,
-  BannerHomeComponent
+  SelectHomeComponent,
+  FooterHomeComponent
 ];
 
 @NgModule({

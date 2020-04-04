@@ -30,3 +30,6 @@ $ccc-theme: mat-light-theme($ccc-primary, $ccc-accent, $ccc-warn);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Montserrat', sans-serif; }
+::-webkit-scrollbar {
+  display: none;
+}
