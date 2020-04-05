@@ -2,7 +2,9 @@
 <div class="col-1-of-2">
   <div class="search">
   </div>
-  <button mat-stroked-button class="stroked" color="">+ New Patient</button>
+  <a routerLink="/dashboard/add-patient">
+    <button mat-stroked-button class="stroked" color="">+ New Patient</button>
+  </a>
 </div>
 <div *ngIf="patients">
   <app-table-data [source]="patients" [displayedColumns]="displayedColumns"></app-table-data>

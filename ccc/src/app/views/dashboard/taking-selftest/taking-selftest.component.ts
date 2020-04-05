@@ -43,7 +43,7 @@ export class TakingSelftestComponent implements OnInit {
     this.questionService.getQuestions();
     this.questionService.questions.subscribe(questions => {
       this.questions = questions;
-    })
+    });
     this.testingService.test.subscribe(test => {
       if (test) {
         this.test = test;
