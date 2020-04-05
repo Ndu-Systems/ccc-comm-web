@@ -28,7 +28,7 @@ export class TestingService {
     return this._test.value;
   }
 
-  initState(data: Test) {
+  updateState(data: Test) {
     if (data) {
       this._test.next(data);
       localStorage.setItem('user_test', JSON.stringify(data));

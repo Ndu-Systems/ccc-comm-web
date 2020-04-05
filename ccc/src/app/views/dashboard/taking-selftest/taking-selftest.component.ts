@@ -14,6 +14,9 @@ export class TakingSelftestComponent implements OnInit {
   step;
   test: Test;
   questions$: Observable<Question[]>;
+  question = '';
+  heading = '';
+  questions: Question[];
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService
@@ -21,9 +24,18 @@ export class TakingSelftestComponent implements OnInit {
 
   ngOnInit() {
     this.test = this.testingService.currentTest;
-    this.step = this.test.Step;
     this.questions$ = this.questionService.questions;
     this.questionService.getQuestions();
+    this.questionService.questions.subscribe(questions => {
+      this.questions = questions;
+    })
+    this.testingService.test.subscribe(test => {
+      this.step = test.Step;
+      if (this.step > 1 && this.questions.length) {
+        this.heading = this.questions[this.step - 2].Name;
+        this.question = this.questions[this.step - 2].Question;
+      }
+    });
   }
 
 }

@@ -90,32 +90,40 @@
         .options {
           padding: 2rem;
 
-          .cols-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 50%);
-          }
+          .cols-1 {
+            .image {
+              height: 6rem;
+              text-align: center;
 
-          .image {
-            height: 6rem;
-          }
-
-          .actions {
-            margin: 2rem 0;
-
-            .cta {
-              padding: .4rem 1.4rem;
-              border-radius: 15px;
-              font-weight: 700;
-              background: $success;
-              border: none;
-              color: $white;
-              cursor: pointer;
+              img {
+                height: 5rem;
+              }
             }
 
-            .secondary {
-              border: 2px solid $success;
-              background: none;
-              color: $success;
+            .actions {
+              margin: 2rem 0;
+              text-align: center;
+
+              .cta {
+                padding: .4rem 1.4rem;
+                border-radius: 15px;
+                font-weight: 700;
+                background: $success;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                margin: 0 2rem;
+              }
+
+              .danger {
+                background: $danger;
+              }
+
+              .secondary {
+                border: 2px solid $success;
+                background: none;
+                color: $success;
+              }
             }
           }
 

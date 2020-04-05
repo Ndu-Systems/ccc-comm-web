@@ -11,7 +11,7 @@ import { Test, initTest } from 'src/app/_models/test.model';
   styleUrls: ['./personal-details.component.scss']
 })
 export class PersonalDetailsComponent implements OnInit {
-  showOtherUserForm: boolean ;
+  showOtherUserForm: boolean;
   heading = ' Take a new test';
   question = 'Please choose who you are taking this test for.';
   rForm: FormGroup;
@@ -47,7 +47,8 @@ export class PersonalDetailsComponent implements OnInit {
     console.log(model);
     const test: Test = initTest;
     test.User = model;
-    this.testingService.initState(test);
+    test.Step = 2;
+    this.testingService.updateState(test);
   }
 
   myself(isTheTestMine: boolean) {
@@ -55,6 +56,11 @@ export class PersonalDetailsComponent implements OnInit {
       this.showOtherUserForm = true;
       this.heading = 'Take a test for another person';
       this.question = 'Please enter their details below';
+    } else {
+      const test: Test = this.testingService.currentTest;
+      test.Step = 2;
+      this.testingService.updateState(test);
+
     }
   }
 }
