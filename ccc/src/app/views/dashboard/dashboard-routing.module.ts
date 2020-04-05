@@ -30,7 +30,8 @@ export const declarations = [
   TakingSelftestComponent,
   PersonalDetailsComponent,
   BreadCrumpComponent,
-  QuickStatsComponent
+  QuickStatsComponent,
+  TestResultComponent
 
 ];
 
