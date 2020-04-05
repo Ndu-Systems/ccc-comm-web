@@ -22,3 +22,4 @@ export interface UserProfileModel {
   ModifyUserId: string;
   StatusId: string;
 }
+

@@ -10,6 +10,7 @@ import { DashboardHomeComponent, PieChartComponent } from './dashboard-home';
 import { BreadCrumpComponent } from './dash-navigation';
 import { QuickStatsComponent } from './dashboard-home/quick-stats';
 import { TestResultComponent } from './taking-selftest/test-result/test-result.component';
+import { TableDataComponent } from './dashboard-home/table-data';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ export const declarations = [
   BreadCrumpComponent,
   QuickStatsComponent,
   TestResultComponent,
-  PieChartComponent
+  PieChartComponent,
+  TableDataComponent
 
 ];
 
