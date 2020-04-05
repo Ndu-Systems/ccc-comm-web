@@ -2,20 +2,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { DashNavigationComponent } from './dash-navigation/dash-navigation.component';
 import { TakingSelftestComponent } from './taking-selftest/taking-selftest.component';
 import { AuthGuard } from 'src/app/_guards';
 import { PersonalDetailsComponent } from './taking-selftest/personal-details/personal-details.component';
+import { DashboardHomeComponent } from './dashboard-home';
+import { BreadCrumpComponent } from './dash-navigation';
+import { QuickStatsComponent } from './dashboard-home/quick-stats';
 
 
 const routes: Routes = [
   {
     path: '', component: DashboardComponent, canActivate: [AuthGuard],
     children: [
-      { path: '', component: TakingSelftestComponent },
-      // { path: '', component: DashboardHomeComponent },
-
+      { path: '', component: DashboardHomeComponent },
+      { path: 'test', component: TakingSelftestComponent },
     ]
   }
 ];
@@ -25,7 +26,9 @@ export const declarations = [
   DashboardHomeComponent,
   DashNavigationComponent,
   TakingSelftestComponent,
-  PersonalDetailsComponent
+  PersonalDetailsComponent,
+  BreadCrumpComponent,
+  QuickStatsComponent
 ];
 
 @NgModule({
