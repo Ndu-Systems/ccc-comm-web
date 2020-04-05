@@ -1,0 +1,20 @@
+@import '../../../../../assets/general/colors';
+.mat-card {
+  display: grid;
+  grid-template-columns: 50% auto;
+
+  .mat-card-subtitle {
+    color: $danger;
+    margin-top: 1rem;
+    font-weight: 600;
+    a {
+      color: $purple;
+    }
+  }
+  .mat-card-title {
+    margin-top: 1rem;
+    font-weight: 900;
+    font-size: 3rem;
+    color: $purple;
+  }
+}

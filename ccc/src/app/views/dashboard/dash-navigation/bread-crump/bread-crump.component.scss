@@ -1,0 +1,36 @@
+@import '../../../../../assets/general/colors';
+
+.dashboard-bread-crump {
+  padding: .8rem;
+
+  .bread-crump {
+    display: grid;
+    grid-template-columns: 93% auto;
+    padding: 0 11rem;
+    padding-right: 5rem;
+    ul{
+        li{
+            display: inline-block;
+            margin-left: 1.2rem;
+            opacity: .5;
+        }
+    }
+
+    .help {
+      position: relative;
+      top: 10px;
+      cursor: pointer;
+        span{
+            font-weight: 900;
+            position: relative;
+            top: -8px;
+            left: 4px;
+            color: $danger;
+        }
+      img {
+        width: 1.5rem;
+      }
+    }
+
+  }
+}
