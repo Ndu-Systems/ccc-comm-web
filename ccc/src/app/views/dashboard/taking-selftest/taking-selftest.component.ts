@@ -75,13 +75,14 @@ export class TakingSelftestComponent implements OnInit {
     }
   }
   onSecondaryAnswer(a) {
+    debugger
     const answer = initAnswer;
     answer.SecondaryAnswer = this.secondaryAnswer;
     answer.Answer = a;
     answer.CreateUserId = this.user.UserProfileId;
     answer.ModifyUserId = this.user.UserProfileId;
     answer.QuestionId = this.currentQuestion.QuestionId;
-    this.test.Answers.filter(x => x.QuestionId !== this.currentQuestion.QuestionId);
+    // this.test.Answers.filter(x => x.QuestionId !== this.currentQuestion.QuestionId);
     this.test.Answers.push(answer);
     this.test.Step++;
     this.isSecondary = false;
