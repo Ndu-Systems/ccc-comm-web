@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SignUpModel, UserProfileModel } from 'src/app/_models';
 import { TestingService } from 'src/app/_services/testing/testing.service';
 import { Test, initTest } from 'src/app/_models/test.model';
+import { AccountService } from 'src/app/_services/account';
 
 @Component({
   selector: 'app-personal-details',
@@ -18,14 +19,17 @@ export class PersonalDetailsComponent implements OnInit {
   hidePassword = true;
   error: string;
   dobDate = new Date(1990, 0, 1);
+  user: UserProfileModel;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
     private route: ActivatedRoute,
-    private testingService: TestingService
+    private testingService: TestingService,
+    private accountService: AccountService
   ) { }
 
   ngOnInit() {
+    this.user = this.accountService.currentUserProfileValue;
     this.rForm = this.fb.group({
       FirstName: [null, Validators.required],
       Surname: ['na', Validators.required],
@@ -59,8 +63,10 @@ export class PersonalDetailsComponent implements OnInit {
     } else {
       const test: Test = this.testingService.currentTest;
       test.Step = 2;
-      this.testingService.updateState(test);
+      test.User = null;
+      test.UserProfileId = this.user.UserProfileId;
 
+      this.testingService.updateState(test);
     }
   }
 }

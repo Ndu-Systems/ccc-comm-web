@@ -92,11 +92,14 @@
 
           .cols-1 {
             .image {
-              height: 7rem;
+              // height: 7rem;
               text-align: center;
 
               img {
                 height: 7rem;
+              }
+              p{
+                font-weight: 600;
               }
             }
 
@@ -125,6 +128,30 @@
                 color: $success;
               }
             }
+
+            .secondary-question {
+              text-align: center;
+              display: flex;
+              width: 50%;
+              margin: 0 auto;
+
+              input {
+                padding: .5rem 1rem;
+                border-radius: 15px;
+                border: 1px solid  $grey;
+              }
+              .cta {
+                padding: .4rem 1.4rem;
+                border-radius: 15px;
+                font-weight: 700;
+                background: $success;
+                border: none;
+                color: $white;
+                cursor: pointer;
+                margin: 0 .5rem;
+              }
+
+            }
           }
 
         }
@@ -132,4 +159,13 @@
     }
   }
 
+}
+
+
+.risk-level{
+  font-weight: 900;
+  font-size: 3rem;
+  text-transform: capitalize;
+  position: relative;
+  top: 10px;
 }

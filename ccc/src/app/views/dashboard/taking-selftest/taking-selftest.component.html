@@ -27,26 +27,53 @@
 
       <div class="form" *ngIf="step != 1">
         <h1 class="heading">
-          {{heading}}
+          {{heading}} 
         </h1>
         <div class="question">
           <h3>
-            {{question}}
+            {{question}} <span class="risk-level">{{riskLevel}}</span>
           </h3>
         </div>
 
-        <div class="options">
+        <div class="options" *ngIf="!isResults">
           <div class="cols-1">
-              <div class="image">
-                <img src="assets/images/coughing.svg" alt="">
-              </div>
-             
-              <div class="actions">
-                <button class="cta primary danger">Yes</button>
-                <button class="cta primary">No</button>
-              </div>
+            <div class="image">
+              <img src="assets/images/coughing.svg" alt="">
+            </div>
+
+            <div class="actions" *ngIf="!isSecondary">
+              <button class="cta primary danger" (click)="answer('yes')">Yes</button>
+              <button class="cta primary">No</button>
+            </div>
+            <div class="secondary-question" *ngIf="isSecondary">
+              <input type="text" [(ngModel)]="secondaryAnswer"> <button (click)="onSecondaryAnswer('yes')"
+                class="cta primary danger">Continue</button>
+            </div>
           </div>
         </div>
+
+
+        <div class="options" *ngIf="isResults">
+          <div class="cols-1">
+            <div class="image">
+              <img src="assets/images/results.svg" alt="">
+              <p>
+                Hey there, please take all the necessary precautions as instructed by the department of health and the
+                state government.
+              </p>
+            </div>
+
+            <div class="actions" *ngIf="!isSecondary">
+              <button class="cta primary" (click)="taketestagain()">Take test again.</button>
+            </div>
+            <div class="secondary-question" *ngIf="isSecondary">
+              <input type="text" [(ngModel)]="secondaryAnswer"> <button (click)="onSecondaryAnswer()"
+                class="cta primary danger">Continue</button>
+            </div>
+          </div>
+        </div>
+
+
       </div>
       <app-personal-details *ngIf="step == 1"></app-personal-details>
 
