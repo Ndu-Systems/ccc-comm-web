@@ -6,7 +6,8 @@
   .bread-crump {
     display: grid;
     grid-template-columns: 93% auto;
-
+    padding: 0 11rem;
+    padding-right: 5rem;
     ul{
         li{
             display: inline-block;

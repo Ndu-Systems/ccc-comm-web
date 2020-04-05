@@ -6,7 +6,7 @@ import { DashNavigationComponent } from './dash-navigation/dash-navigation.compo
 import { TakingSelftestComponent } from './taking-selftest/taking-selftest.component';
 import { AuthGuard } from 'src/app/_guards';
 import { PersonalDetailsComponent } from './taking-selftest/personal-details/personal-details.component';
-import { DashboardHomeComponent } from './dashboard-home';
+import { DashboardHomeComponent, PieChartComponent } from './dashboard-home';
 import { BreadCrumpComponent } from './dash-navigation';
 import { QuickStatsComponent } from './dashboard-home/quick-stats';
 import { TestResultComponent } from './taking-selftest/test-result/test-result.component';
@@ -31,7 +31,8 @@ export const declarations = [
   PersonalDetailsComponent,
   BreadCrumpComponent,
   QuickStatsComponent,
-  TestResultComponent
+  TestResultComponent,
+  PieChartComponent
 
 ];
 

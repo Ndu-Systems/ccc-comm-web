@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule, declarations } from './dashboard-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { MaterialModule } from 'src/app/material.module';
     DashboardRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   declarations: [...declarations]
 })
