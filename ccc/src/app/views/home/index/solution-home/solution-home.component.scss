@@ -1,0 +1,110 @@
+@import '../../../../../assets/general/colors';
+
+.solution {
+
+  .association {
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding: 0 15rem;
+
+    @media only screen and (max-width: 600px) {
+      padding: 1rem;
+    }
+  }
+
+  .associates {
+    background: $cloud-white;
+    padding: 1rem 20rem;
+
+    .col-1-of-4 {
+      padding: 0 10rem;
+
+      .ci-image {
+        img {
+          height: 5.875rem;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        padding: 0;
+        grid-template-columns: repeat(2, 50%);
+
+        .ci-image {
+          img {
+            height: 2.625rem;
+          }
+        }
+      }
+
+    }
+
+    @media only screen and (max-width: 600px) {
+      padding: 2rem;
+    }
+
+  }
+
+
+}
+
+.screen-shots {
+  padding: 0 15rem;
+  padding-top: 5rem;
+
+  .shot {
+    margin: 5rem 0;
+
+    &.col-1-of-2 {
+
+      .description {
+        width: 85%;
+
+        h1 {
+          line-height: 2.688rem;
+        }
+
+        .main {
+
+          font-size: 2.188rem;
+          font-weight: 900;
+        }
+
+        .regular {
+          font-size: 1.125rem;
+          font-weight: 400;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+          padding: 1rem;
+          .main {
+            font-size: 1.563rem;
+            font-weight: 500;
+          }
+          .regular {
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      @media only screen and (max-width: 600px) {}
+
+      .screen {
+        @media only screen and (max-width: 600px) {
+          img {
+            height: 13.5rem;
+          }
+        }
+
+      }
+    }
+
+    @media only screen and (max-width: 600px) {}
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+  }
+
+}

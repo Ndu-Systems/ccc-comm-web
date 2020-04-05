@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/_services/account';
 
 @Component({
   selector: 'app-dash-navigation',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private accountService: AccountService
+  ) { }
 
   ngOnInit() {
   }
-
+  signOut() {
+    this.accountService.signOut();
+  }
 }

@@ -1,15 +1,13 @@
 @import '../../../../assets/general/colors';
 
-.dashboard-navigation {
-  background: $gradient-primary;
-  padding: 1.2rem 5rem;
-
-  .logo {
-    img {
-      width: 10rem;
-    }
-  }
+.example-icon {
+  padding: 0 14px;
 }
+
+.example-spacer, ul {
+  flex: 1 1 auto;
+}
+
 
 .dashboard-bread-crump {
   padding: .8rem;
@@ -43,4 +41,8 @@
     }
 
   }
+}
+
+.sign-out {
+  cursor: pointer;
 }
