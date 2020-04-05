@@ -11,7 +11,7 @@ import { Test, initTest } from 'src/app/_models/test.model';
   styleUrls: ['./personal-details.component.scss']
 })
 export class PersonalDetailsComponent implements OnInit {
-  showOtherUserForm: boolean = true;
+  showOtherUserForm: boolean ;
   heading = ' Take a new test';
   question = 'Please choose who you are taking this test for.';
   rForm: FormGroup;

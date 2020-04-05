@@ -12,6 +12,7 @@ export interface Test {
     StatusId: string;
     Answers: Answer[];
     User?: UserProfileModel;
+    Step?: number;
 }
 
 
@@ -24,5 +25,6 @@ export const initTest = {
     ModifyDate: '',
     ModifyUserId: '',
     StatusId: '1',
-    Answers: []
+    Answers: [],
+    Step: 1
 };

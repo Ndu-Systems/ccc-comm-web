@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Test } from 'src/app/_models/test.model';
+import { Test, initTest } from 'src/app/_models/test.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +17,7 @@ export class TestingService {
     private http: HttpClient,
 
   ) {
-    this._test = new BehaviorSubject<Test>(JSON.parse(localStorage.getItem('user_test')));
+    this._test = new BehaviorSubject<Test>(JSON.parse(localStorage.getItem('user_test')) || initTest);
     this.test = this._test.asObservable();
 
     this.url = environment.API_URL;
@@ -33,7 +33,6 @@ export class TestingService {
       this._test.next(data);
       localStorage.setItem('user_test', JSON.stringify(data));
     }
-
   }
 
 }
