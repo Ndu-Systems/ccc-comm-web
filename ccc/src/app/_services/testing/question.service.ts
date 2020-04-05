@@ -40,4 +40,5 @@ export class QuestionService {
       this.initState(data);
     });
   }
+
 }

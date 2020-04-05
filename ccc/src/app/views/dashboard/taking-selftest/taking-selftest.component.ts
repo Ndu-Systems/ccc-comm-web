@@ -55,6 +55,7 @@ export class TakingSelftestComponent implements OnInit {
             this.question = 'Your risk level of having the corona virus/ COVID-19 is';
             this.riskLevel = 'low.';
             this.isResults = true;
+            this.testingService.postTest(this.test);
             return;
           }
 
