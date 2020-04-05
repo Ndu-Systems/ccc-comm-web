@@ -1,0 +1,10 @@
+@import '../../../../assets/general/colors';
+
+.mat-button-base {
+  width: 15rem;
+  border: solid 2px $success;
+  color: $success;
+  font-weight: 600;
+  margin: 0 29rem;
+  margin-right: 0;
+}

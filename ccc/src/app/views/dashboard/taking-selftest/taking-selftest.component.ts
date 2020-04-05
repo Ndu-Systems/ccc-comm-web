@@ -27,6 +27,8 @@ export class TakingSelftestComponent implements OnInit {
   user: UserProfileModel;
   isResults: boolean;
   riskLevel: string;
+  name = 'Tests';
+  subText = 'Take a test';
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,

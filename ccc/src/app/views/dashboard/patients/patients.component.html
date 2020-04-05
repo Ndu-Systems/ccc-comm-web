@@ -1,6 +1,9 @@
 <app-bread-crump [baseName]="name" [baseSubtext]="subText"></app-bread-crump>
-<app-quick-stats></app-quick-stats>
-<app-pie-chart></app-pie-chart>
+<div class="col-1-of-2">
+  <div class="search">
+  </div>
+  <button mat-stroked-button class="stroked" color="">+ New Patient</button>
+</div>
 <div *ngIf="patients">
   <app-table-data [source]="patients" [displayedColumns]="displayedColumns"></app-table-data>
 </div>
