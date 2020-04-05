@@ -51,9 +51,6 @@ export class TakingSelftestComponent implements OnInit {
             this.heading = this.questions[this.step - 2].Name;
             this.question = this.questions[this.step - 2].Question;
           } else {
-            // this.step = 1;
-            // this.testingService.updateState(initTest);
-            // this.routeTo.navigate(['dashboard/test-results']);
             this.heading = 'Results processed successfully.';
             this.question = 'Your risk level of having the corona virus/ COVID-19 is';
             this.riskLevel = 'low.';
@@ -72,13 +69,14 @@ export class TakingSelftestComponent implements OnInit {
       this.isSecondary = true;
       this.question = this.currentQuestion.SecondaryQuestion;
     } else {
-
+      this.secondaryAnswer = '';
+      this.onSecondaryAnswer('no');
     }
   }
-  onSecondaryAnswer() {
+  onSecondaryAnswer(a) {
     const answer = initAnswer;
     answer.SecondaryAnswer = this.secondaryAnswer;
-    answer.Answer = 'yes';
+    answer.Answer = a;
     answer.CreateUserId = this.user.UserProfileId;
     answer.ModifyUserId = this.user.UserProfileId;
     answer.QuestionId = this.currentQuestion.QuestionId;

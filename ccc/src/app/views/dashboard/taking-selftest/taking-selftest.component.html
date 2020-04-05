@@ -46,7 +46,7 @@
               <button class="cta primary">No</button>
             </div>
             <div class="secondary-question" *ngIf="isSecondary">
-              <input type="text" [(ngModel)]="secondaryAnswer"> <button (click)="onSecondaryAnswer()"
+              <input type="text" [(ngModel)]="secondaryAnswer"> <button (click)="onSecondaryAnswer('yes')"
                 class="cta primary danger">Continue</button>
             </div>
           </div>
