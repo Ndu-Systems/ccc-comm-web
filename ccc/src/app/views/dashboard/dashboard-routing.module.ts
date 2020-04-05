@@ -6,6 +6,7 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { DashNavigationComponent } from './dash-navigation/dash-navigation.component';
 import { TakingSelftestComponent } from './taking-selftest/taking-selftest.component';
 import { AuthGuard } from 'src/app/_guards';
+import { PersonalDetailsComponent } from './taking-selftest/personal-details/personal-details.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ export const declarations = [
   DashboardComponent,
   DashboardHomeComponent,
   DashNavigationComponent,
-  TakingSelftestComponent
+  TakingSelftestComponent,
+  PersonalDetailsComponent
 ];
 
 @NgModule({

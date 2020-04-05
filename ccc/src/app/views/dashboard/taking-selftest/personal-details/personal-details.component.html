@@ -1,0 +1,86 @@
+<div class="form">
+  <h1 class="heading">
+    {{heading}}
+  </h1>
+  <div class="question">
+    <h3>
+      {{question}}
+    </h3>
+  </div>
+
+  <div class="options">
+    <div class="cols-2" *ngIf="!showOtherUserForm">
+      <div class="col">
+        <div class="image">
+          <img src="assets/images/user-1.svg" alt="">
+        </div>
+        <div class="actions">
+          <button class="cta primary" (click)="myself(true)">For myself</button>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="image">
+          <img src="assets/images/users.svg" alt="">
+        </div>
+        <div class="actions">
+          <button class="cta secondary" (click)="myself(false)">For another person</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="other-user-form" *ngIf="showOtherUserForm">
+      <div class="form-container">
+        <div class="error" *ngIf="error">
+          {{error}}
+        </div>
+        <form [formGroup]="rForm">
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Enter full name</mat-label>
+            <input matInput placeholder="Name and Surname" formControlName="FirstName" MatFormFieldControl type="text"
+              required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">
+              Full name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>What is your relationship</mat-label>
+            <input matInput placeholder="relationship e.g Grandmother" formControlName="ContactNumber"
+              MatFormFieldControl type="text" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['ContactNumber'].valid && rForm.controls['ContactNumber'].touched">
+              What is your relationship</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="e.g 45" formControlName="Age" MatFormFieldControl type="number" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['Age'].valid && rForm.controls['Age'].touched">
+              Age is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Select gender</mat-label>
+            <select formControlName="Sex" matNativeControl required>
+              <option value="volvo">Male</option>
+              <option value="saab">Female</option>
+              <option value="mercedes">Other</option>
+            </select>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['Sex'].valid && rForm.controls['Sex'].touched">
+              Gender is required</mat-error>
+          </mat-form-field>
+          <div class="actions cols-2 btns">
+            <button class="cta primary" (click)="onSubmit(rForm.value)">Start survey now</button>
+            <button class="cta secondary" (click)="myself(false)">Go back</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
