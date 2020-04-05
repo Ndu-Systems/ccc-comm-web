@@ -2,8 +2,8 @@ export interface UserProfileModel {
   UserProfileId: string;
   FirstName: string;
   Surname: string;
-  Age: string;
-  DOB: string;
+  Age: number;
+  DOB: Date;
   Sex: string;
   ContactNumber: string;
   Email: string;
