@@ -5,7 +5,7 @@
     </div>
 
     <div class="nav-form">
-      <div class="nav">
+      <div class="nav" *ngIf="questions$ | async as questions">
         <div class="nav-item">
           <span class="number active">
             1
@@ -14,22 +14,15 @@
             Before We Begin.
           </span>
         </div>
-        <div class="nav-item">
+        <div class="nav-item" *ngFor="let question of questions; let i = index">
           <span class="number">
-            1
+            {{i + 2}}
           </span>
           <span class="label">
-            Before We Begin.
+            {{question.Question}}
           </span>
         </div>
-        <div class="nav-item">
-          <span class="number">
-            1
-          </span>
-          <span class="label">
-            Before We Begin.
-          </span>
-        </div>
+
       </div>
 
       <div class="form" *ngIf="step != 1">
@@ -42,7 +35,7 @@
           </h3>
         </div>
 
-        <div class="options" >
+        <div class="options">
           <div class="cols-2">
             <div class="col">
               <div class="image">

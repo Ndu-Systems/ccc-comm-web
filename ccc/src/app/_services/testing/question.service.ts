@@ -9,26 +9,26 @@ import { Question } from 'src/app/_models/question.model';
 })
 export class QuestionService {
 
-  private _questions: BehaviorSubject<Question>;
-  public questions: Observable<Question>;
+  private _questions: BehaviorSubject<Question[]>;
+  public questions: Observable<Question[]>;
 
   url: string;
   constructor(
     private http: HttpClient,
 
   ) {
-    this._questions = new BehaviorSubject<Question>(JSON.parse(localStorage.getItem('questions')));
+    this._questions = new BehaviorSubject<Question[]>(JSON.parse(localStorage.getItem('questions')));
     this.questions = this._questions.asObservable();
 
     this.url = environment.API_URL;
 
   }
 
-  public get currentTest(): Question {
+  public get currentTest(): Question[] {
     return this._questions.value;
   }
 
-  initState(data: Question) {
+  initState(data: Question[]) {
     if (data) {
       this._questions.next(data);
       localStorage.setItem('questions', JSON.stringify(data));
