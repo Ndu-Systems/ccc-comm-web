@@ -110,9 +110,9 @@
     </div>
 
     <div class="cta">
-      <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">Take a test
+      <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">+ Save Changes
       </button>
-      <a routerLink="/sign-up" class="cta">Create a new account</a>
+      <a routerLink="/dashboard/patients" class="cta">cancel</a>
     </div>
     <div class="error" *ngIf="error">
       <h1>{{error}}</h1>
