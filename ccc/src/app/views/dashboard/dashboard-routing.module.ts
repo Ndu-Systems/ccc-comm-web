@@ -7,6 +7,7 @@ import { DashNavigationComponent } from './dash-navigation/dash-navigation.compo
 import { TakingSelftestComponent } from './taking-selftest/taking-selftest.component';
 import { AuthGuard } from 'src/app/_guards';
 import { PersonalDetailsComponent } from './taking-selftest/personal-details/personal-details.component';
+import { TestResultComponent } from './taking-selftest/test-result/test-result.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
     path: '', component: DashboardComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: TakingSelftestComponent },
+      { path: 'test-results', component: TestResultComponent },
       // { path: '', component: DashboardHomeComponent },
 
     ]
@@ -25,7 +27,8 @@ export const declarations = [
   DashboardHomeComponent,
   DashNavigationComponent,
   TakingSelftestComponent,
-  PersonalDetailsComponent
+  PersonalDetailsComponent,
+  TestResultComponent
 ];
 
 @NgModule({
