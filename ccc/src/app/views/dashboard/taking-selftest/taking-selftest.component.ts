@@ -52,10 +52,10 @@ export class TakingSelftestComponent implements OnInit {
         if (test.Step === 'Done') {
           this.calculateRisk();
         }
-        else if (test.Step === 'Saved') {
+        if (test.Step === 'Saved') {
           this.showSaved();
         }
-        else {
+        if (!isNaN(test.Step)) {
           this.test = test;
           this.step = test.Step;
           if (this.step > 1 && this.questions.length) {
@@ -87,8 +87,6 @@ export class TakingSelftestComponent implements OnInit {
   }
   calculateRisk() {
     console.log(this.test);
-    const numberOfYeses = this.test.Answers.filter(x => x.Answer === 'yes').length;
-    const numberOfNos = this.test.Answers.filter(x => x.Answer === 'no').length;
     let severityHigh = 0;
     let severityMed = 0;
     let severityLow = 0;
@@ -140,7 +138,6 @@ export class TakingSelftestComponent implements OnInit {
   }
   postTheTest() {
     this.testingService.postTest(this.test).subscribe(data => {
-      console.log(data);
       this.test.Step = 'Saved';
       this.testingService.updateState(this.test);
     });
