@@ -46,41 +46,41 @@ export class TakingSelftestComponent implements OnInit {
     });
     this.testingService.test.subscribe(test => {
       if (test) {
-        this.test = test;
-        this.step = test.Step;
-        
-        if (this.step > 1 && this.questions.length) {
-          if (this.questions[this.step - 2]) {
-            this.heading = this.questions[this.step - 2].Name;
-            this.question = this.questions[this.step - 2].Question;
-            this.currentQuestion = this.questions[this.step - 2];
-          } else {
-            this.heading = 'Results processed successfully.';
-            this.question = 'Your risk level of having the corona virus/ COVID-19 is';
-            this.riskLevel = 'low.';
-            this.isResults = true;
-            this.testingService.postTest(this.test);
-            this.testingService.updateState(
-              {
-                TestId: '',
-                UserProfileId: '',
-                AddressId: '',
-                CreateDate: '',
-                CreateUserId: '',
-                ModifyDate: '',
-                ModifyUserId: '',
-                StatusId: '1',
-                Answers: [],
-                Step: 1
-              }
-            );
-            this.step = 1;
-            return;
-          }
+        if (test.Step === 'Done') {
+          this.calculateRisk();
+        } else {
+          this.test = test;
+          this.step = test.Step;
+          if (this.step > 1 && this.questions.length) {
+            if (this.questions[this.step - 2]) {
+              this.heading = this.questions[this.step - 2].Name;
+              this.question = this.questions[this.step - 2].Question;
+              this.currentQuestion = this.questions[this.step - 2];
+              this.riskLevel = '';
+              this.isResults = false;
+            } else {
+              test.Step = 'Done';
+              this.testingService.updateState(this.test);
+              this.step = 'done';
+              return;
+            }
 
+          }
         }
       }
     });
+  }
+  calculateRisk() {
+    console.log(this.test);
+    this.heading = 'Results processed successfully.';
+    this.question = 'Your risk level of having the corona virus/ COVID-19 is';
+    this.riskLevel = 'low.';
+    this.isResults = true;
+    this.test.CreateUserId = this.user.UserProfileId;
+    this.postTheTest();
+  }
+  postTheTest() {
+    this.testingService.postTest(this.test);
   }
 
   answer(answer) {
@@ -94,25 +94,37 @@ export class TakingSelftestComponent implements OnInit {
     }
   }
   onSecondaryAnswer(a) {
-    const answer: Answer = {
-      QuestionId: '',
-      Answer: '',
-      SecondaryAnswer: '',
-      CreateUserId: '',
-      ModifyUserId: '',
-      StatusId: '1'
-    };
-    answer.SecondaryAnswer = this.secondaryAnswer;
-    answer.Answer = a;
-    answer.CreateUserId = this.user.UserProfileId;
-    answer.ModifyUserId = this.user.UserProfileId;
-    answer.QuestionId = this.currentQuestion && this.currentQuestion.QuestionId || 'empty';
-    // this.test.Answers.filter(x => x.QuestionId !== this.currentQuestion.QuestionId);
-    this.test.Answers.push(answer);
-    this.test.Step++;
-    this.isSecondary = false;
-    this.secondaryAnswer = '';
-    this.testingService.updateState(this.test);
+
+    if (this.currentQuestion) {
+      const answer: Answer = {
+        QuestionId: '',
+        Answer: '',
+        SecondaryAnswer: '',
+        CreateUserId: '',
+        ModifyUserId: '',
+        StatusId: '1'
+      };
+      answer.SecondaryAnswer = this.secondaryAnswer;
+      answer.Answer = a;
+      answer.CreateUserId = this.user.UserProfileId;
+      answer.ModifyUserId = this.user.UserProfileId;
+      answer.QuestionId = this.currentQuestion.QuestionId;
+      // this.test.Answers.filter(x => x.QuestionId !== this.currentQuestion.QuestionId);
+      this.test.Answers.push(answer);
+      this.test.Step++;
+      this.isSecondary = false;
+      this.secondaryAnswer = '';
+      this.testingService.updateState(this.test);
+    } else {
+      // check if all question answered
+      if (this.test && this.test.Answers.length === this.questions.length) {
+        alert('Done')
+      } else {
+        alert('Test is empty');
+      }
+
+    }
+
   }
 
   taketestagain() {

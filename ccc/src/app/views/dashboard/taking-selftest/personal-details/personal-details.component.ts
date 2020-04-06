@@ -33,11 +33,11 @@ export class PersonalDetailsComponent implements OnInit {
     this.rForm = this.fb.group({
       FirstName: [null, Validators.required],
       Surname: ['na', Validators.required],
-      Email: ['test@mail.com', Validators.compose([
+      Email: [`${new Date().getTime() * 12}@rand.com`, Validators.compose([
         Validators.required,
         Validators.email
       ])],
-      Password: [null], //
+      Password: ['default-other-user'], //
       Age: [],
       DOB: [''],
       Sex: [''],

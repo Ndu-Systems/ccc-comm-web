@@ -12,7 +12,7 @@ export interface Test {
     StatusId: string;
     Answers: Answer[];
     User?: UserProfileModel;
-    Step?: number;
+    Step?: any;
 }
 
 
