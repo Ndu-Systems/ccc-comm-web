@@ -3,6 +3,9 @@ export interface Question {
     Name: string;
     Question: string;
     SecondaryQuestion: string;
+    Option1: string;
+    Option2: string;
+    Option3: string;
     CreateDate: string;
     CreateUserId: string;
     ModifyDate: string;

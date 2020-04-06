@@ -4,7 +4,7 @@ import { Test, initTest } from 'src/app/_models/test.model';
 import { QuestionService } from 'src/app/_services/testing/question.service';
 import { Observable } from 'rxjs';
 import { Question } from 'src/app/_models/question.model';
-import { initAnswer } from 'src/app/_models/answer.model';
+import { initAnswer, Answer } from 'src/app/_models/answer.model';
 import { AccountService } from 'src/app/_services/account';
 import { UserProfileModel } from 'src/app/_models';
 import { Router } from '@angular/router';
@@ -46,16 +46,33 @@ export class TakingSelftestComponent implements OnInit {
       if (test) {
         this.test = test;
         this.step = test.Step;
+        
         if (this.step > 1 && this.questions.length) {
           if (this.questions[this.step - 2]) {
             this.heading = this.questions[this.step - 2].Name;
             this.question = this.questions[this.step - 2].Question;
+            this.currentQuestion = this.questions[this.step - 2];
           } else {
             this.heading = 'Results processed successfully.';
             this.question = 'Your risk level of having the corona virus/ COVID-19 is';
             this.riskLevel = 'low.';
             this.isResults = true;
             this.testingService.postTest(this.test);
+            this.testingService.updateState(
+              {
+                TestId: '',
+                UserProfileId: '',
+                AddressId: '',
+                CreateDate: '',
+                CreateUserId: '',
+                ModifyDate: '',
+                ModifyUserId: '',
+                StatusId: '1',
+                Answers: [],
+                Step: 1
+              }
+            );
+            this.step = 1;
             return;
           }
 
@@ -75,13 +92,19 @@ export class TakingSelftestComponent implements OnInit {
     }
   }
   onSecondaryAnswer(a) {
-    debugger
-    const answer = initAnswer;
+    const answer: Answer = {
+      QuestionId: '',
+      Answer: '',
+      SecondaryAnswer: '',
+      CreateUserId: '',
+      ModifyUserId: '',
+      StatusId: '1'
+    };
     answer.SecondaryAnswer = this.secondaryAnswer;
     answer.Answer = a;
     answer.CreateUserId = this.user.UserProfileId;
     answer.ModifyUserId = this.user.UserProfileId;
-    answer.QuestionId = this.currentQuestion.QuestionId;
+    answer.QuestionId = this.currentQuestion && this.currentQuestion.QuestionId || 'empty';
     // this.test.Answers.filter(x => x.QuestionId !== this.currentQuestion.QuestionId);
     this.test.Answers.push(answer);
     this.test.Step++;
@@ -91,8 +114,21 @@ export class TakingSelftestComponent implements OnInit {
   }
 
   taketestagain() {
-    this.step = 1;
-    this.testingService.updateState(initTest);
+
+    this.testingService.updateState(
+      {
+        TestId: '',
+        UserProfileId: '',
+        AddressId: '',
+        CreateDate: '',
+        CreateUserId: '',
+        ModifyDate: '',
+        ModifyUserId: '',
+        StatusId: '1',
+        Answers: [],
+        Step: 1
+      }
+    );
     this.isResults = false;
     this.isSecondary = false;
     this.riskLevel = '';

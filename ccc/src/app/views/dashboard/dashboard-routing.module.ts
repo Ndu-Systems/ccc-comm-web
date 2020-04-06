@@ -7,9 +7,9 @@ import { TakingSelftestComponent } from './taking-selftest/taking-selftest.compo
 import { AuthGuard } from 'src/app/_guards';
 import { PersonalDetailsComponent } from './taking-selftest/personal-details/personal-details.component';
 import { DashboardHomeComponent, PieChartComponent } from './dashboard-home';
-import { BreadCrumpComponent } from './dash-navigation';
 import { QuickStatsComponent } from './dashboard-home/quick-stats';
 import { TestResultComponent } from './taking-selftest/test-result/test-result.component';
+import { BreadCrumpComponent } from './dash-navigation/bread-crump';
 
 
 const routes: Routes = [
