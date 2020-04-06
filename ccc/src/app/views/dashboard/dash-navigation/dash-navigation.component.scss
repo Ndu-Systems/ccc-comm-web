@@ -33,8 +33,12 @@
         color: $white;
         font-weight: 700;
       }
+
     }
   }
+}
+.active-link {
+  border-bottom: solid 3px $danger-light;
 }
 
 .mobile {

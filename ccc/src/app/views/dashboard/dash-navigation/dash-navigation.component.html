@@ -3,9 +3,9 @@
     <a class="logo" routerLink="/dashboard">
       <img src="assets/images/home/logo.svg" alt="logo main">
     </a>
-    <a routerLink="/dashboard">home</a>
-    <a routerLink="/dashboard/test">corona test</a>
-    <a routerLink="/dashboard/patients">patients</a>
+    <a routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">home</a>
+    <a routerLink="/dashboard/test" routerLinkActive="active-link" >corona test</a>
+    <a routerLink="/dashboard/patients" routerLinkActive="active-link" >patients</a>
     <span class="example-spacer"></span>
     <a class="sign-out" (click)="signOut()">
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">power_settings_new</mat-icon>
