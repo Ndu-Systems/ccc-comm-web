@@ -16,6 +16,7 @@ export class AddPatientComponent implements OnInit {
   rForm: FormGroup;
   dobDate = new Date(1990, 0, 1);
   updatedAge = 0;
+  error = '';
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
@@ -68,7 +69,9 @@ export class AddPatientComponent implements OnInit {
       if (data.Email) {
         this.userService.getAllUsers();
         this.routeTo.navigate(['dashboard/patients']);
-      }
+      } else {
+         this.error = data;
+       }
     });
   }
 }

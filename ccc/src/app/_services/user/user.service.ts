@@ -32,7 +32,7 @@ export class UserService {
       });
   }
 
-  addUser(model: UserProfileModel): Observable<UserProfileModel> {
+  addUser(model: UserProfileModel): Observable<UserProfileModel | any> {
     return this.http.post<UserProfileModel>(`${this.api}/api/user/add-user.php`, model);
   }
 

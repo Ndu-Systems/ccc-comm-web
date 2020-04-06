@@ -18,7 +18,5 @@ export class TableDataComponent implements OnInit {
 
     this.dataSource  = new MatTableDataSource<any[]>(this.source);
     this.dataSource.paginator = this.paginator;
-
-    console.log(this.source);
-  }
+   }
 }

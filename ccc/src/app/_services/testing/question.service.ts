@@ -41,4 +41,12 @@ export class QuestionService {
     });
   }
 
+  getAllQuestions(statusId: number): Observable<Question[]> {
+    return this.http.get<Question[]>(`${this.url}/api/question/get-question.php?StatusId=1`);
+  }
+
+  addAQuestion(model: Question): Observable<Question | any> {
+    return this.http.post<Question>(`${this.url}/api/question/add-question.php`, model);
+  }
+
 }

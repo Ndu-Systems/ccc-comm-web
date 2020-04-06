@@ -1,0 +1,24 @@
+ @import '../../../../../assets/general/colors';
+
+ .action-title {
+   font-size: 1.5rem;
+   font-weight: 700;
+   color: $danger;
+ }
+ .mat-card {
+
+  .mat-card-subtitle {
+    color: $danger;
+    margin-top: 1rem;
+    font-weight: 600;
+    a {
+      color: $purple;
+    }
+  }
+  .mat-card-title {
+    margin-top: 1rem;
+    font-weight: 800;
+    font-size: 1.225rem;
+    color: $purple;
+  }
+}
