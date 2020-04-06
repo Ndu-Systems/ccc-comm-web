@@ -8,18 +8,18 @@
     <div class="nav-form">
       <div class="nav" *ngIf="questions$ | async as questions">
         <div class="nav-item">
-          <span class="number active">
+          <span class="number"  [ngClass]="active">
             1
           </span>
-          <span class="label">
+          <span class="label"  [ngClass]="active">
             Before We Begin.
           </span>
         </div>
         <div class="nav-item" *ngFor="let question of questions; let i = index">
-          <span class="number">
+          <span class="number" [ngClass]="question.Class">
             {{i + 2}}
           </span>
-          <span class="label">
+          <span class="label"  [ngClass]="question.Class">
             {{question.Question}}
           </span>
         </div>
@@ -28,7 +28,7 @@
 
       <div class="form" *ngIf="step != 1">
         <h1 class="heading">
-          {{heading}} - {{step}}
+          {{heading}}
         </h1>
         <div class="question">
           <h3>

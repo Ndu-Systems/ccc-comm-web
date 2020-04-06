@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./taking-selftest.component.scss']
 })
 export class TakingSelftestComponent implements OnInit {
-  step;
+  step: any = 1;
   test: Test;
   questions$: Observable<Question[]>;
   question = '';
@@ -29,6 +29,7 @@ export class TakingSelftestComponent implements OnInit {
   riskLevel: string;
   name = 'Tests';
   subText = 'Take a test';
+  active: string;
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,
@@ -56,6 +57,8 @@ export class TakingSelftestComponent implements OnInit {
               this.heading = this.questions[this.step - 2].Name;
               this.question = this.questions[this.step - 2].Question;
               this.currentQuestion = this.questions[this.step - 2];
+              this.resetQuestionClasses();
+              this.questions[this.step - 2].Class = 'active';
               this.riskLevel = '';
               this.isResults = false;
             } else {
@@ -67,8 +70,14 @@ export class TakingSelftestComponent implements OnInit {
 
           }
         }
+        if (this.step === 1) {
+          this.active = 'active';
+        } else {
+          this.active = '';
+        }
       }
     });
+
   }
   calculateRisk() {
     console.log(this.test);
@@ -93,6 +102,11 @@ export class TakingSelftestComponent implements OnInit {
       this.onSecondaryAnswer('no');
     }
   }
+  resetQuestionClasses() {
+    this.questions.forEach(x => {
+      x.Class = '';
+    })
+  }
   onSecondaryAnswer(a) {
 
     if (this.currentQuestion) {
@@ -115,16 +129,7 @@ export class TakingSelftestComponent implements OnInit {
       this.isSecondary = false;
       this.secondaryAnswer = '';
       this.testingService.updateState(this.test);
-    } else {
-      // check if all question answered
-      if (this.test && this.test.Answers.length === this.questions.length) {
-        alert('Done')
-      } else {
-        alert('Test is empty');
-      }
-
     }
-
   }
 
   taketestagain() {
@@ -146,6 +151,7 @@ export class TakingSelftestComponent implements OnInit {
     this.isResults = false;
     this.isSecondary = false;
     this.riskLevel = '';
+    this.resetQuestionClasses();
   }
 
 }

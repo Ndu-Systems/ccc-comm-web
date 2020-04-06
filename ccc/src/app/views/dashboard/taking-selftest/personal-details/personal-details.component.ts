@@ -69,4 +69,9 @@ export class PersonalDetailsComponent implements OnInit {
       this.testingService.updateState(test);
     }
   }
+  back(){
+    this.showOtherUserForm = false;
+    this.heading = ' Take a new test';
+    this.question = 'Please choose who you are taking this test for.';
+  }
 }

@@ -11,4 +11,5 @@ export interface Question {
     ModifyDate: string;
     ModifyUserId: string;
     StatusId: string;
+    Class?: string;
 }
