@@ -5,6 +5,7 @@
     </a>
     <a routerLink="/dashboard">home</a>
     <a routerLink="/dashboard/test">corona test</a>
+    <a routerLink="/dashboard/patients">patients</a>
     <span class="example-spacer"></span>
     <a class="sign-out" (click)="signOut()">
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">power_settings_new</mat-icon>
@@ -12,4 +13,15 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<app-bread-crump [baseName]="name" [baseSubtext]="subText"></app-bread-crump>
+
+<mat-toolbar class="mobile menu-items">
+  <ul>
+    <li><a routerLink="/dashboard" (click)="toggleNave()">
+      home</a></li>
+    <li><a routerLink="/dashboard/test" (click)="toggleNave()">
+      corona test</a></li>
+    <li><a routerLink="/dashboard/patients" (click)="toggleNave()">
+      patients</a></li>
+
+  </ul>
+</mat-toolbar>

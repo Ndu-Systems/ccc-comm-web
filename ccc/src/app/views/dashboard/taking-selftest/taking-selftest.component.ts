@@ -27,6 +27,8 @@ export class TakingSelftestComponent implements OnInit {
   user: UserProfileModel;
   isResults: boolean;
   riskLevel: string;
+  name = 'Tests';
+  subText = 'Take a test';
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,
@@ -41,7 +43,7 @@ export class TakingSelftestComponent implements OnInit {
     this.questionService.getQuestions();
     this.questionService.questions.subscribe(questions => {
       this.questions = questions;
-    })
+    });
     this.testingService.test.subscribe(test => {
       if (test) {
         this.test = test;

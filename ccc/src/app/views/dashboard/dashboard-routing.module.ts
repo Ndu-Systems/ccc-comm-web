@@ -10,6 +10,8 @@ import { DashboardHomeComponent, PieChartComponent } from './dashboard-home';
 import { QuickStatsComponent } from './dashboard-home/quick-stats';
 import { TestResultComponent } from './taking-selftest/test-result/test-result.component';
 import { BreadCrumpComponent } from './dash-navigation/bread-crump';
+import { TableDataComponent } from './shared/table-data';
+import { PatientsComponent, AddPatientComponent } from './patients';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardHomeComponent },
       { path: 'test', component: TakingSelftestComponent },
-      { path: 'test-results', component: TestResultComponent }
+      { path: 'test-results', component: TestResultComponent },
+      { path: 'patients', component: PatientsComponent },
+      { path: 'add-patient', component: AddPatientComponent }
     ]
   }
 ];
@@ -32,7 +36,10 @@ export const declarations = [
   BreadCrumpComponent,
   QuickStatsComponent,
   TestResultComponent,
-  PieChartComponent
+  PieChartComponent,
+  TableDataComponent,
+  PatientsComponent,
+  AddPatientComponent
 
 ];
 

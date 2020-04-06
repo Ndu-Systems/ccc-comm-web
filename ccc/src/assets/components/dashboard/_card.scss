@@ -1,12 +1,15 @@
 .dashboard-content {
 
   .mat-card {
-    width: 100%;
+    width: 19.5rem;
     box-shadow: none !important;
+
     &:hover {
-      box-shadow: 2px 8px 26px 2px rgba(0,0,0,0.11)  !important;
+      box-shadow: 2px 8px 26px 2px rgba(0, 0, 0, 0.11) !important;
       cursor: pointer;
     }
   }
+
+
 
 }

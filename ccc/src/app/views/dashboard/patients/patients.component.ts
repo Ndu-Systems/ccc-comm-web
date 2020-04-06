@@ -1,17 +1,18 @@
-import { UserProfileModel } from 'src/app/_models';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/_services/user/user.service';
+import { UserProfileModel } from 'src/app/_models';
+import { UserService } from 'src/app/_services';
 
 @Component({
-  selector: 'app-dashboard-home',
-  templateUrl: './dashboard-home.component.html',
-  styleUrls: ['./dashboard-home.component.scss']
+  selector: 'app-patients',
+  templateUrl: './patients.component.html',
+  styleUrls: ['./patients.component.scss']
 })
-export class DashboardHomeComponent implements OnInit {
+export class PatientsComponent implements OnInit {
   patients: UserProfileModel[] = [];
   displayedColumns: string[] = ['fullname', 'contactnumber', 'email', 'age', 'address', 'enrollmentDate', 'status'];
-  name = 'Dashboard';
-  subText = 'Quick stats';
+  name = 'Patients';
+  subText = 'List patients';
+
   constructor(
     private userService: UserService
   ) { }
@@ -19,5 +20,6 @@ export class DashboardHomeComponent implements OnInit {
   ngOnInit() {
     this.patients = this.userService.currentUserListValue;
     this.userService.getAllUsers();
-   }
+  }
+
 }
