@@ -34,9 +34,7 @@ export class TestingService {
       localStorage.setItem('user_test', JSON.stringify(data));
     }
   }
-  postTest(data) {
-    return this.http.post<any>(`${this.url}/api/test/do-a-test.php`, data).subscribe(res => {
-      console.log(res);
-    });
+  postTest(data): Observable<Test[]> {
+    return this.http.post<any>(`${this.url}/api/test/do-a-test.php`, data);
   }
 }
