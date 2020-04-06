@@ -4,6 +4,7 @@ import { UserProfileModel } from './user-profile.model';
 export interface Test {
     TestId: string;
     UserProfileId: string;
+    Outcome?: string;
     AddressId: string;
     CreateDate: string;
     CreateUserId: string;

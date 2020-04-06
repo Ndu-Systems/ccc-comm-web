@@ -48,9 +48,9 @@
             </div>
             <div class="secondary-question" *ngIf="isSecondary">
               <mat-radio-group *ngIf="currentQuestion" class="form-group" [(ngModel)]="secondaryAnswer" aria-label="Select an option">
-                <mat-radio-button class="input-radio" [value]="currentQuestion.Option1">{{currentQuestion.Option1}}</mat-radio-button>
-                <mat-radio-button class="input-radio" [value]="currentQuestion.Option2">{{currentQuestion.Option2}}</mat-radio-button>
-                <mat-radio-button class="input-radio" [value]="currentQuestion.Option3">{{currentQuestion.Option3}}</mat-radio-button>
+                <mat-radio-button class="input-radio" *ngIf="currentQuestion.Option1" [value]="currentQuestion.Option1">{{currentQuestion.Option1}}</mat-radio-button>
+                <mat-radio-button class="input-radio" *ngIf="currentQuestion.Option2" [value]="currentQuestion.Option2">{{currentQuestion.Option2}}</mat-radio-button>
+                <mat-radio-button class="input-radio" *ngIf="currentQuestion.Option3" [value]="currentQuestion.Option3">{{currentQuestion.Option3}}</mat-radio-button>
               </mat-radio-group>
               <!-- <input type="text" [(ngModel)]="secondaryAnswer">  -->
               <button (click)="onSecondaryAnswer('yes')"
@@ -66,13 +66,17 @@
             <div class="image">
               <img src="assets/images/results.svg" alt="">
               <p>
-                Hey there, please take all the necessary precautions as instructed by the department of health and the
-                state government.
+          
+                {{testDetails}}
               </p>
             </div>
 
-            <div class="actions" *ngIf="!isSecondary">
+            <div class="actions" *ngIf="!isSecondary && !seekMedicalHelp">
               <button class="cta primary" (click)="taketestagain()">Take test again.</button>
+            </div>
+            <div class="actions" *ngIf="!isSecondary && seekMedicalHelp">
+              <button class="cta primary" (click)="taketestagain()">Take test again</button>
+              <button class="cta primary danger" (click)="seekHelp()">Seek medical help</button>
             </div>
             <div class="secondary-question" *ngIf="isSecondary">
           

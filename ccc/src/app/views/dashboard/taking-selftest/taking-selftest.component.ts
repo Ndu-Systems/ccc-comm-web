@@ -30,6 +30,8 @@ export class TakingSelftestComponent implements OnInit {
   name = 'Tests';
   subText = 'Take a test';
   active: string;
+  seekMedicalHelp: boolean;
+  testDetails: string;
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,
@@ -49,7 +51,11 @@ export class TakingSelftestComponent implements OnInit {
       if (test) {
         if (test.Step === 'Done') {
           this.calculateRisk();
-        } else {
+        }
+        if (test.Step === 'Saved') {
+          this.showSaved();
+        }
+        if (!isNaN(test.Step)) {
           this.test = test;
           this.step = test.Step;
           if (this.step > 1 && this.questions.length) {
@@ -81,22 +87,76 @@ export class TakingSelftestComponent implements OnInit {
   }
   calculateRisk() {
     console.log(this.test);
+    let severityHigh = 0;
+    let severityMed = 0;
+    let severityLow = 0;
+    this.test.Answers.forEach(answer => {
+      if (answer.Answer === 'yes') {
+        const question = this.questions.find(x => x.QuestionId === answer.QuestionId);
+        if (question && Number(question.Severity) === 1) {
+          severityLow++;
+        }
+        if (question && Number(question.Severity) === 2) {
+          severityMed++;
+        }
+        if (question && Number(question.Severity) === 3) {
+          severityHigh++;
+        }
+      }
+    });
+
+    if (severityMed === 0 && severityHigh === 0) {
+      this.riskLevel = 'low';
+      this.testDetails = `Hey there, please take all the necessary precautions as instructed by the department of health and the
+      state government.`;
+    }
+    if (severityHigh === 0 && severityMed > 0) {
+      this.riskLevel = 'medium';
+      this.seekMedicalHelp = true;
+      this.testDetails = `Hey there, we don't want to raise any alarms but can you kindly
+      make your way to the nearest medical facility or contact the COVID-19 helpline (toll-free) for more information.`
+    }
+    if (severityHigh > 0) {
+      this.riskLevel = 'high';
+      this.testDetails = `Hey there, contact the COVID-19 helpline (toll-free) for more information of where to from here,
+      please self quarantine until you have taken the real test with real professionals.`
+      this.seekMedicalHelp = true;
+
+    }
+
     this.heading = 'Results processed successfully.';
     this.question = 'Your risk level of having the corona virus/ COVID-19 is';
-    this.riskLevel = 'low.';
     this.isResults = true;
     this.test.CreateUserId = this.user.UserProfileId;
+    this.test.Outcome = this.riskLevel;
     this.postTheTest();
   }
+  showSaved() {
+    this.heading = 'Results processed successfully.';
+    this.question = 'Your risk level of having the corona virus/ COVID-19 is';
+    this.isResults = true;
+  }
   postTheTest() {
-    this.testingService.postTest(this.test);
+    this.testingService.postTest(this.test).subscribe(data => {
+      this.test.Step = 'Saved';
+      this.testingService.updateState(this.test);
+    });
   }
 
   answer(answer) {
     this.currentQuestion = this.questions[this.step - 2];
     if (answer === 'yes') {
-      this.isSecondary = true;
-      this.question = this.currentQuestion.SecondaryQuestion;
+      if (
+        this.currentQuestion.SecondaryQuestion &&
+        this.currentQuestion.Option1
+      ) {
+        this.isSecondary = true;
+        this.question = this.currentQuestion.SecondaryQuestion;
+      } else {
+        this.secondaryAnswer = '';
+        this.onSecondaryAnswer('yes');
+      }
+
     } else {
       this.secondaryAnswer = '';
       this.onSecondaryAnswer('no');
@@ -150,8 +210,13 @@ export class TakingSelftestComponent implements OnInit {
     );
     this.isResults = false;
     this.isSecondary = false;
+    this.seekMedicalHelp = false;
     this.riskLevel = '';
     this.resetQuestionClasses();
+  }
+
+  seekHelp() {
+
   }
 
 }
