@@ -3,6 +3,7 @@ export interface Question {
     Name: string;
     Question: string;
     SecondaryQuestion: string;
+    Severity: number;
     Option1: string;
     Option2: string;
     Option3: string;

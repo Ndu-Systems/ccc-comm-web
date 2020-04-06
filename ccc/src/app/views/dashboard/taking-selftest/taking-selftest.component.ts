@@ -89,43 +89,36 @@ export class TakingSelftestComponent implements OnInit {
     console.log(this.test);
     const numberOfYeses = this.test.Answers.filter(x => x.Answer === 'yes').length;
     const numberOfNos = this.test.Answers.filter(x => x.Answer === 'no').length;
-    let OptionOnes = 0;
-    let OptionTwos = 0;
-    let OptionTrees = 0;
+    let severityHigh = 0;
+    let severityMed = 0;
+    let severityLow = 0;
     this.test.Answers.forEach(answer => {
-      if (this.questions.find(x => x.Option1 === answer.SecondaryAnswer)) {
-        OptionOnes++;
-      }
-      if (this.questions.find(x => x.Option2 === answer.SecondaryAnswer)) {
-        OptionTwos += 2;
-      }
-      if (this.questions.find(x => x.Option3 === answer.SecondaryAnswer)) {
-        OptionTrees += 3;
+      if (answer.Answer === 'yes') {
+        const question = this.questions.find(x => x.QuestionId === answer.QuestionId);
+        if (question && Number(question.Severity) === 1) {
+          severityLow++;
+        }
+        if (question && Number(question.Severity) === 2) {
+          severityMed++;
+        }
+        if (question && Number(question.Severity) === 3) {
+          severityHigh++;
+        }
       }
     });
 
-    // calculate
-    let risk = 0;
-    risk += numberOfYeses;
-    risk -= numberOfNos;
-    risk += OptionOnes;
-    risk += OptionTwos;
-    risk += OptionTrees;
-
-    // max risk
-    const maxPossibleRisk = this.questions.length + (this.questions.length * 2);
-    if (risk <= maxPossibleRisk / 4) {
+    if (severityMed === 0 && severityHigh === 0) {
       this.riskLevel = 'low';
       this.testDetails = `Hey there, please take all the necessary precautions as instructed by the department of health and the
       state government.`;
     }
-    if (risk > maxPossibleRisk / 4 && risk < maxPossibleRisk / 2) {
+    if (severityHigh === 0 && severityMed > 0) {
       this.riskLevel = 'medium';
       this.seekMedicalHelp = true;
       this.testDetails = `Hey there, we don't want to raise any alarms but can you kindly
       make your way to the nearest medical facility or contact the COVID-19 helpline (toll-free) for more information.`
     }
-    if (risk >= maxPossibleRisk / 2) {
+    if (severityHigh > 0) {
       this.riskLevel = 'high';
       this.testDetails = `Hey there, contact the COVID-19 helpline (toll-free) for more information of where to from here,
       please self quarantine until you have taken the real test with real professionals.`
