@@ -5,3 +5,11 @@
   font-weight: 900;
   color: $purple;
 }
+
+.view-chat {
+  position: fixed;
+  left: 292px;
+  top: 79px;
+  width: 63%;
+  z-index: 1000;
+}

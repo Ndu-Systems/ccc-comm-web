@@ -1,19 +1,18 @@
-
-
 <div class="chart col-1-of-4">
-  <mat-card>
+  <!-- <mat-card>
     <mat-card-header>
       <mat-card-title>User stats</mat-card-title>
       <mat-card-subtitle>Total patients</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <div class="chart-wrapper">
-        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabelsPatients"
+          [chartType]="doughnutChartType">
         </canvas>
       </div>
     </mat-card-content>
-  </mat-card>
-  <mat-card>
+  </mat-card> -->
+  <!-- <mat-card>
     <mat-card-header>
       <mat-card-title>COVID-19 <span class="positive">+</span></mat-card-title>
       <mat-card-subtitle>Patients who require attention</mat-card-subtitle>
@@ -24,19 +23,66 @@
         </canvas>
       </div>
     </mat-card-content>
-  </mat-card>
+  </mat-card> -->
+
+
   <mat-card>
     <mat-card-header>
-      <mat-card-title>COVID-19 <span class="negative">-</span></mat-card-title>
-      <mat-card-subtitle>Patients who are at low risk</mat-card-subtitle>
+      <mat-card-title>HIGH RISK</mat-card-title>
+      <mat-card-subtitle>Patients who are at high risk</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <div class="chart-wrapper">
-        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+        <canvas baseChart [data]="doughnutChartDataHigRisk" [labels]="doughnutChartLabelsHighRisk" [chartType]="doughnutChartType">
         </canvas>
       </div>
     </mat-card-content>
   </mat-card>
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>MEDIUM RISK </mat-card-title>
+      <mat-card-subtitle>Patients who are at medium risk</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <canvas baseChart [data]="doughnutChartDataMediumRisk" [labels]="doughnutChartLabelsMedRisk" [chartType]="doughnutChartType">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>LOW RISK</mat-card-title>
+      <mat-card-subtitle>Patients who are at low risk</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <canvas baseChart [data]="doughnutChartDataLowRisk" [labels]="doughnutChartLabelsLowRisk" [chartType]="doughnutChartType">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>TOP SYMPTOMS</mat-card-title>
+      <mat-card-subtitle>Patients who are at low risk</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <canvas baseChart [data]="doughnutChartDataSymptoms" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+<!-- 
   <mat-card>
     <mat-card-header>
       <mat-card-title>Incomplete Tests</mat-card-title>
@@ -48,5 +94,5 @@
         </canvas>
       </div>
     </mat-card-content>
-  </mat-card>
+  </mat-card> -->
 </div>

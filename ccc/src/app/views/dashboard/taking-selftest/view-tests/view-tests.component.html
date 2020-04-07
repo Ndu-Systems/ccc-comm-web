@@ -10,12 +10,12 @@
   <div class="filters">
     <mat-form-field class="form-group" appearance="outline">
       <mat-label>Filter by risk</mat-label>
-      <mat-select  [(ngModel)]="filterRisk" matNativeControl>
-        <mat-option [value]="">all</mat-option>
-        <mat-option [value]="">High</mat-option>
-        <mat-option [value]="">Medium</mat-option>
-        <mat-option [value]="">Low</mat-option>
-      </mat-select >
+      <mat-select [(ngModel)]="filterRisk" matNativeControl>
+        <mat-option value="">all</mat-option>
+        <mat-option value="High">High</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="Low">Low</mat-option>
+      </mat-select>
       <mat-icon matSuffix>filter_list</mat-icon>
     </mat-form-field>
   </div>
