@@ -19,41 +19,45 @@
       <mat-icon matSuffix>filter_list</mat-icon>
     </mat-form-field>
   </div>
-  <div class="header">
-    <div class="patient-name">
-      Name
-    </div>
-    <div class="patient-name">
-      City
-    </div>
-    <div class="patient-name">
-      Address
-    </div>
-    <div class="patient-name">
-      Date
-    </div>
-    <div class="patient-name">
-      Risk Status
-    </div>
-  </div>
+  <div class="main">
 
-  <div class="data" *ngFor="let item of tests | filterstatus: filterRisk">
-    <div>
-      {{item.User?.FirstName}}
+    <div class="header">
+      <div class="patient-name">
+        Name
+      </div>
+      <div class="patient-name">
+        City
+      </div>
+      <div class="patient-name">
+        Address
+      </div>
+      <div class="patient-name">
+        Date
+      </div>
+      <div class="patient-name">
+        Risk Status
+      </div>
     </div>
-    <div>
-      {{item.User?.City}}
-    </div>
-    <div>
-      {{item.User?.Address}}
-    </div>
-    <div>
-      {{item.CreateDate | date}}
-    </div>
-    <div>
-      <b>
-        {{item.Outcome}}
-      </b>
+  
+    <div class="data" *ngFor="let item of tests | filterstatus: filterRisk">
+      <div>
+        {{item.User?.FirstName}}
+      </div>
+      <div>
+        {{item.User?.City}}
+      </div>
+      <div>
+        {{item.User?.Address}}
+      </div>
+      <div>
+        {{item.CreateDate | date}}
+      </div>
+      <div>
+        <b>
+          {{item.Outcome}}
+        </b>
+      </div>
     </div>
   </div>
+ 
 </div>
