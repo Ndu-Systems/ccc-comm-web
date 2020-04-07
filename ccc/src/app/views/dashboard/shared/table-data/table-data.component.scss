@@ -1,3 +1,73 @@
+@import '../../../../../assets/general/colors';
+
+
 table {
   width: 100%;
+}
+
+.mat-header-row {
+  th {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+.mat-elevation-z8 {
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-elevation-z8 {
+    display: none;
+  }
+
+
+
+  .mobile {
+    display: grid;
+
+    .table-cards {
+      margin: 0.25rem 0rem;
+
+      .mat-card {
+        width: 100%;
+
+        .mat-card-title {
+          font-weight: 900;
+          font-size: 1rem;
+          color: $purple;
+        }
+
+        .mat-card-subtitle {
+          color: $danger;
+
+          font-weight: 600;
+
+          a {
+            color: $purple;
+          }
+        }
+
+        .mat-card-content {
+          display: grid;
+          grid-template-columns: repeat(2, 50%);
+          h1 {
+            font-size: 0.77rem;
+
+            &.title {
+              font-weight: 900;
+
+              .value {
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
