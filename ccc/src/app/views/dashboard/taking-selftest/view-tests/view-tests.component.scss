@@ -1,20 +1,61 @@
 @import '../../../../../assets/general/colors';
-.main{
-    background: $white;
-    padding: 1rem 1.5rem;
-.header {
+
+.main {
+  background: $white;
+  padding: 1rem 1.5rem;
+
+  .header {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     font-weight: 700;
     border-bottom: 2px solid $grey;
+    border-bottom-color: $border-color;
     padding-bottom: .5rem;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
   }
+
   .data {
     display: grid;
     grid-template-columns: repeat(5, 20%);
     font-weight: 400;
-    border-bottom: 1px solid $grey;
-    padding: .5rem .1rem
+    border-bottom: 1px solid $cloud-white;
+    border-bottom-color: $border-color;
+    padding: .5rem .1rem;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 50%);
+
+    }
   }
-  
+
+  .tac {
+    text-align: center;
+  }
+
+}
+
+.status-badge {
+  color: $white;
+  padding: .3rem;
+  border-radius: 7px;
+  font-size: .8rem;
+  width: 4rem;
+  text-align: center;
+  display: block;
+
+}
+
+.risk-low {
+  background: $success;
+}
+
+.risk-med {
+  background: $warn;
+}
+
+.risk-high {
+  background: $danger;
 }

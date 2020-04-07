@@ -51,10 +51,10 @@
       <div>
         {{item.CreateDate | date}}
       </div>
-      <div>
-        <b>
-          {{item.Outcome}}
-        </b>
+      <div class="tac">
+        <span class="status-badge risk-low" *ngIf="item.Outcome == 'low'">{{item.Outcome}}</span>
+        <span class="status-badge risk-med" *ngIf="item.Outcome == 'medium'">{{item.Outcome}}</span>
+        <span class="status-badge risk-high" *ngIf="item.Outcome == 'high'">{{item.Outcome}}</span>
       </div>
     </div>
   </div>
