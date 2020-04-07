@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/_services/account';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SignUpModel, PROVINCES } from 'src/app/_models';
+import { SignUpModel, PROVINCES, UserProfileModel } from 'src/app/_models';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,6 +15,7 @@ export class SignUpComponent implements OnInit {
   error: string;
   dobDate = new Date(1990, 0, 1);
   provinces = PROVINCES;
+  updatedAge = 0;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
@@ -31,7 +32,7 @@ export class SignUpComponent implements OnInit {
         Validators.email
       ])],
       Password: [null, Validators.required],
-      Age: [0],
+      Age: [this.updatedAge],
       DOB: [this.dobDate, Validators.required],
       ContactNumber: [null, Validators.compose([
         Validators.minLength(10),
@@ -45,11 +46,16 @@ export class SignUpComponent implements OnInit {
       StatusId: [1]
     });
   }
-  calculateAge(model: SignUpModel) {
+
+  calculateAge(model: UserProfileModel): number {
     const timeDiff = Math.abs(Date.now() - model.DOB.getTime());
-    model.Age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+    this.updatedAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+    model.Age = this.updatedAge;
+    return this.updatedAge;
   }
+
   onSubmit(model: SignUpModel) {
+    model.Age = this.updatedAge;
     this.accountService.signUp(model).subscribe(data => {
       if (data.Email) {
         this.routeTo.navigate(['/get-started']);

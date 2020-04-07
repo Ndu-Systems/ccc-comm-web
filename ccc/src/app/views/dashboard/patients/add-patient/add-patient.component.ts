@@ -60,9 +60,7 @@ export class AddPatientComponent implements OnInit {
     const timeDiff = Math.abs(Date.now() - model.DOB.getTime());
     this.updatedAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
     model.Age = this.updatedAge;
-    console.log(this.updatedAge);
     return this.updatedAge;
-
   }
   onSubmit(model: UserProfileModel) {
     this.userService.addUser(model).subscribe(data => {
@@ -70,8 +68,8 @@ export class AddPatientComponent implements OnInit {
         this.userService.getAllUsers();
         this.routeTo.navigate(['dashboard/patients']);
       } else {
-         this.error = data;
-       }
+        this.error = data;
+      }
     });
   }
 }
