@@ -2,6 +2,17 @@
   padding: 0 14px;
 }
 
-.example-spacer, ul {
+.example-spacer,
+ul {
   flex: 1 1 auto;
+}
+
+.desktop {
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
 }

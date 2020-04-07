@@ -3,8 +3,9 @@
 .sign-up {
   background: $gradient-primary;
   background: url('../../../../../assets/images/home/sign-in-bg.svg');
-  height: 110vh;
+  height: 100%;
   background-repeat: no-repeat;
+  background-position-x: 150%;
   padding: 1rem 3rem;
   padding-bottom: 0;
 
@@ -102,7 +103,7 @@
   }
 
   @media only screen and (max-width: 600px) {
-    height: 110vh;
+    height: 100%;
     padding: 1rem;
     background: $gradient-primary;
   }
