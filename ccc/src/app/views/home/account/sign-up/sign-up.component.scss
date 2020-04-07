@@ -5,7 +5,7 @@
   background: url('../../../../../assets/images/home/sign-in-bg.svg');
   height: 110vh;
   background-repeat: no-repeat;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   padding-bottom: 0;
 
   .form {
@@ -18,12 +18,14 @@
       .form-heading {
         font-weight: 300;
         color: $primary;
-        margin-bottom: 5rem;
+        margin-bottom: 1rem;
       }
 
       .col-1-of-2 {
         margin-bottom: 0rem;
       }
+
+
 
       .form-group {
         display: block;

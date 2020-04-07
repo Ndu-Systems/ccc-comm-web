@@ -7,42 +7,83 @@
       <form [formGroup]="rForm">
         <h1 class="form-heading">Create new account</h1>
 
-        <mat-form-field class="form-group" appearance="outline">
-          <mat-label>Enter your first name</mat-label>
-          <input matInput placeholder="First Name" formControlName="FirstName" MatFormFieldControl type="text" required>
-          <mat-icon matSuffix>person</mat-icon>
-          <mat-error *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">a valid First
-            name is
-            required</mat-error>
-        </mat-form-field>
+        <div class="col-1-of-2">
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Enter your first name</mat-label>
+            <input matInput placeholder="First Name" formControlName="FirstName" MatFormFieldControl type="text"
+              required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['FirstName'].touched">a valid First
+              name is
+              required</mat-error>
+          </mat-form-field>
 
-        <mat-form-field class="form-group" appearance="outline">
-          <mat-label>Enter your surname</mat-label>
-          <input matInput placeholder="Surname" formControlName="Surname" MatFormFieldControl type="text" required>
-          <mat-icon matSuffix>person</mat-icon>
-          <mat-error *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">a valid surname is
-            required</mat-error>
-        </mat-form-field>
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Enter your surname</mat-label>
+            <input matInput placeholder="Surname" formControlName="Surname" MatFormFieldControl type="text" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">a valid surname is
+              required</mat-error>
+          </mat-form-field>
+        </div>
 
         <mat-form-field class="form-group" appearance="outline">
           <mat-label>Enter contact number</mat-label>
-          <input matInput placeholder="ContactNumber" formControlName="ContactNumber"  maxlength="13" MatFormFieldControl type="text" required>
+          <input matInput placeholder="ContactNumber" formControlName="ContactNumber" maxlength="13" MatFormFieldControl
+            type="text" required>
           <mat-icon matSuffix>stay_primary_portrait</mat-icon>
           <mat-error *ngIf="!rForm.controls['ContactNumber'].valid && rForm.controls['ContactNumber'].touched">
             a valid ContactNumber (10 Characters long) is required</mat-error>
-
         </mat-form-field>
 
         <mat-form-field class="form-group" appearance="outline">
           <mat-label>Date of birth</mat-label>
-          <input matInput placeholder="DOB" formControlName="DOB" (ngModelChange)="calculateAge(rForm.value)" MatFormFieldControl [matDatepicker]="picker" required>
+          <input matInput placeholder="DOB" formControlName="DOB" (ngModelChange)="calculateAge(rForm.value)"
+            MatFormFieldControl [matDatepicker]="picker" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker startView="year" [startAt]="dobDate"></mat-datepicker>
-           <mat-error *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">a valid date of birth is
+          <mat-error *ngIf="!rForm.controls['DOB'].valid && rForm.controls['DOB'].touched">a valid date of birth is
             required</mat-error>
         </mat-form-field>
 
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Enter your (current) physical</mat-label>
+          <textarea matInput placeholder="Address" formControlName="Address" MatFormFieldControl type="text"
+            required></textarea>
+          <mat-icon matSuffix>home</mat-icon>
+          <mat-error *ngIf="!rForm.controls['Address'].valid && rForm.controls['Address'].touched">a valid date of birth
+            is
+            required</mat-error>
+        </mat-form-field>
 
+        <div class="col-1-of-2">
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Select Province</mat-label>
+            <mat-select formControlName="Province">
+              <mat-option *ngFor="let item of provinces" [value]="item.name">
+                {{item.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!rForm.controls['Province'].valid && rForm.controls['Province'].touched">a valid Province
+              is
+              required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Enter your City/Town</mat-label>
+            <input matInput placeholder="City" formControlName="City" MatFormFieldControl type="text" required>
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-error *ngIf="!rForm.controls['City'].valid && rForm.controls['City'].touched">a valid City is
+              required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-group" appearance="outline">
+            <mat-label>PostCode</mat-label>
+            <input matInput placeholder="PostCode" formControlName="PostCode" MatFormFieldControl type="text">
+            <mat-icon matSuffix>pin_drop</mat-icon>
+            <mat-error *ngIf="!rForm.controls['PostCode'].valid && rForm.controls['PostCode'].touched">a valid PostCode
+              is
+              required</mat-error>
+          </mat-form-field>
+        </div>
 
         <mat-form-field class="form-group" appearance="outline">
           <mat-label>Email address</mat-label>
@@ -54,7 +95,7 @@
 
         <mat-form-field class="form-group" appearance="outline">
           <mat-label>4 digit pin</mat-label>
-          <input matInput placeholder="Pin" formControlName="Password"  maxlength="4" MatFormFieldControl
+          <input matInput placeholder="Pin" formControlName="Password" maxlength="4" MatFormFieldControl
             [type]="hidePassword ? 'password' : 'text'" required>
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'">
             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
