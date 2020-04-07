@@ -8,6 +8,7 @@ import { initAnswer, Answer } from 'src/app/_models/answer.model';
 import { AccountService } from 'src/app/_services/account';
 import { UserProfileModel } from 'src/app/_models';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-taking-selftest',
@@ -39,6 +40,7 @@ export class TakingSelftestComponent implements OnInit {
     private questionService: QuestionService,
     private accountService: AccountService,
     private routeTo: Router,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -231,6 +233,7 @@ export class TakingSelftestComponent implements OnInit {
   }
 
   seekHelp() {
+    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
 
   }
 
