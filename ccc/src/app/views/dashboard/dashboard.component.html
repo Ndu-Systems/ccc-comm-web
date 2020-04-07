@@ -1,9 +1,51 @@
-<div class="dashboard">
+<div class="dashboard" [class.home-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="home-toolbar mobile">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a routerLink=""><img src="assets/images/home/icon.svg" alt="header icon" class="header-icon"></a>
+    </mat-toolbar-row>
+  </mat-toolbar>
   <div class="nav">
     <app-dash-navigation></app-dash-navigation>
   </div>
-  <div class="dashboard-content">
-    <router-outlet></router-outlet>
-  </div>
+  <mat-sidenav-container class="home-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/home.svg" alt="home_icon">&nbsp;
+          Home</a>
+        <a mat-list-item routerLink="/dashboard/test" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/test.svg" alt="test_icon">&nbsp;
+          Take a test</a>
+        <a mat-list-item routerLink="/dashboard/view-tests" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/tests.svg" alt="tests_icon">&nbsp;
+          View tests</a>
+        <a mat-list-item routerLink="/dashboard/patients" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/patients.svg" alt="patients_icon">&nbsp;
+          View Patients</a>
+        <a mat-list-item routerLink="/dashboard/configurations" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/settings.svg" alt="config_icon">&nbsp;
+          Configuration</a>
+        <a mat-list-item (click)="signOut()">
+          <img src="assets/images/dashboard/power.svg" alt="signout_icon">&nbsp;
+          sign-out
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="dashboard-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
+
+
+
+
+
+
 <p-toast [showTransformOptions]="'translateX(100%)'"></p-toast>
