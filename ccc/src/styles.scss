@@ -28,17 +28,33 @@ $ccc-theme: mat-light-theme($ccc-primary, $ccc-accent, $ccc-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 .error {
   background: #F8BB56;
-  padding: 0.5rem 1rem;
   border-radius: 5px;
   color: #fff;
-  font-size: .82rem;
-  font-weight: 500;
+  margin: 2rem 0;
+  margin-bottom: 0;
+  border-radius: 5rem;
+  text-align: center;
+  padding: 0.255rem 0;
+  width: 50%;
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
 }

@@ -1,0 +1,19 @@
+<span *ngIf="actions">
+  <div *ngFor="let action of actions">
+    <h1 class="action-title">
+      {{action.title}}
+    </h1>
+    <div class="col-1-of-4">
+      <span *ngFor="let item of action.actions">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{item.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-header>
+            <mat-card-subtitle><a [routerLink]="item.link">{{item.label}}</a></mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </span>
+    </div>
+  </div>
+</span>

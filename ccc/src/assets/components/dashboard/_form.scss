@@ -8,16 +8,21 @@
       .form-heading {
         font-weight: 600;
         color: $danger;
-        margin-bottom: 2.5rem;
+        margin-bottom: 0.5rem;
       }
-
+      .form-subheading {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: $black;
+      }
       .form-content {
         padding: 2rem;
         padding-left: 0rem;
       }
 
       .form-group {
-        // display: block;
+
       }
 
       .mat-form-field-wrapper {

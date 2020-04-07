@@ -1,0 +1,70 @@
+<app-bread-crump [baseName]="name" [baseSubtext]="subText"></app-bread-crump>
+<div class="form-container">
+  <form [formGroup]="rForm">
+    <h1 class="form-heading">Fill in the question information</h1>
+
+    <div class="col-1-of-3 form-content">
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Display Name</mat-label>
+        <input matInput placeholder="Display name" formControlName="Name" MatFormFieldControl type="text" required>
+        <mat-icon matSuffix>label</mat-icon>
+        <mat-error *ngIf="!rForm.controls['Name'].valid && rForm.controls['Name'].touched">question name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Primary Question</mat-label>
+        <input matInput placeholder="Primary Question" formControlName="Question" MatFormFieldControl type="text"
+          required>
+        <mat-icon matSuffix>help_outline</mat-icon>
+        <mat-error *ngIf="!rForm.controls['Question'].valid && rForm.controls['Question'].touched">question name is
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Select Severity of Question</mat-label>
+        <mat-select formControlName="Severity">
+          <mat-option *ngFor="let item of severityList" [value]="item.value">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Secondary Question</mat-label>
+        <input matInput placeholder="Secondary Question" formControlName="SecondaryQuestion" MatFormFieldControl
+          type="text" required>
+        <mat-icon matSuffix>help_outline</mat-icon>
+        <mat-error *ngIf="!rForm.controls['SecondaryQuestion'].valid && rForm.controls['SecondaryQuestion'].touched">
+          question name is
+          required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <h1 class="form-subheading">Question options</h1>
+    <div class="col-1-of-3 form-content">
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Option one</mat-label>
+        <input matInput placeholder="Option 1" formControlName="Option1" MatFormFieldControl type="text">
+        <mat-icon matSuffix>create</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Option two</mat-label>
+        <input matInput placeholder="Option 2" formControlName="Option2" MatFormFieldControl type="text">
+        <mat-icon matSuffix>create</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-group" appearance="outline">
+        <mat-label>Enter Option three</mat-label>
+        <input matInput placeholder="Option 3" formControlName="Option3" MatFormFieldControl type="text">
+        <mat-icon matSuffix>create</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="cta">
+      <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">+ Save Changes
+      </button>
+      <a routerLink="/dashboard/questions" class="cta">cancel</a>
+    </div>
+    <div class="error" *ngIf="error">
+      <h1>{{error}}</h1>
+    </div>
+  </form>
+</div>
