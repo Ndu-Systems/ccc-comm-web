@@ -233,7 +233,8 @@ export class TakingSelftestComponent implements OnInit {
   }
 
   seekHelp() {
-    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
+    this.messageService.add({ severity: 'success', summary: 'Help sent!', detail: 'we have notified the health organizations' });
+    this.taketestagain();
 
   }
 

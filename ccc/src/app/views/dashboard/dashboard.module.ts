@@ -7,6 +7,8 @@ import { MaterialModule } from 'src/app/material.module';
 import { ChartsModule } from 'ng2-charts';
 import {ToastModule} from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import {ChartModule} from 'primeng/chart';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     FormsModule,
     ReactiveFormsModule,
     ChartsModule,
-    ToastModule
+    ToastModule,
+    ChartModule
   ],
   declarations: [...declarations],
   providers: [MessageService, ConfirmationService]

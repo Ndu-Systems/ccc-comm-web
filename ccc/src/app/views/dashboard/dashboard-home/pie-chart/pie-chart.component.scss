@@ -13,3 +13,11 @@
   width: 63%;
   z-index: 1000;
 }
+
+.col-1-of-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  .mat-card{
+    width: 100%;
+  }
+}
