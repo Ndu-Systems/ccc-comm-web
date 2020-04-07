@@ -5,6 +5,8 @@ import { DashboardRoutingModule, declarations } from './dashboard-routing.module
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 import { ChartsModule } from 'ng2-charts';
+import {ToastModule} from 'primeng/toast';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -13,8 +15,11 @@ import { ChartsModule } from 'ng2-charts';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    ToastModule
   ],
-  declarations: [...declarations]
+  declarations: [...declarations],
+  providers: [MessageService, ConfirmationService]
+
 })
 export class DashboardModule { }
