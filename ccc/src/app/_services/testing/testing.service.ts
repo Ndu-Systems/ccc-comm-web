@@ -12,6 +12,9 @@ export class TestingService {
   private _test: BehaviorSubject<Test>;
   public test: Observable<Test>;
 
+  private _allTests: BehaviorSubject<Test[]>;
+  public allTests: Observable<Test[]>;
+
   url: string;
   constructor(
     private http: HttpClient,
@@ -19,6 +22,9 @@ export class TestingService {
   ) {
     this._test = new BehaviorSubject<Test>(JSON.parse(localStorage.getItem('user_test')) || initTest);
     this.test = this._test.asObservable();
+
+    this._allTests = new BehaviorSubject<Test[]>(JSON.parse(localStorage.getItem('all_tests')) || []);
+    this.allTests = this._allTests.asObservable();
 
     this.url = environment.API_URL;
 
@@ -34,7 +40,20 @@ export class TestingService {
       localStorage.setItem('user_test', JSON.stringify(data));
     }
   }
+
+  updateAllTestsState(data: any) {
+    if (data) {
+      this._allTests.next(data);
+      localStorage.setItem('all_tests', JSON.stringify(data));
+    }
+  }
   postTest(data): Observable<Test[]> {
     return this.http.post<any>(`${this.url}/api/test/do-a-test.php`, data);
   }
+  getAll(statusId) {
+    return this.http.get<any>(`${this.url}/api/test/get-tests.php?StatusId=${statusId}`).subscribe(data => {
+      this.updateAllTestsState(data);
+    });
+  }
+
 }

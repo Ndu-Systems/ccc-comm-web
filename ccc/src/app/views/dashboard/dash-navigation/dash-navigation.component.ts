@@ -7,7 +7,7 @@ import { AccountService } from 'src/app/_services/account';
   styleUrls: ['./dash-navigation.component.scss']
 })
 export class DashNavigationComponent implements OnInit {
-
+  toggleNave
   constructor(
     private accountService: AccountService
   ) { }

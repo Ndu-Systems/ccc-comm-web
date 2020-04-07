@@ -3,7 +3,9 @@
 .dashboard-content {
   background: $cloud-white;
   padding: 2rem 15rem;
-
+  @media only screen and (max-width: 1500px) {
+    padding: 2rem 6rem;
+  }
 
   @media only screen and (max-width: 600px) {
     padding: .2rem;

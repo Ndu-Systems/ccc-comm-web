@@ -1,0 +1,16 @@
+@import '../../../../../assets/general/colors';
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  font-weight: 700;
+  border-bottom: 2px solid $grey;
+  padding-bottom: .5rem;
+}
+.data {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  font-weight: 400;
+  border-bottom: 1px solid $grey;
+  padding: .5rem .1rem
+}
