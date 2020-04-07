@@ -43,6 +43,8 @@ export class SignInComponent implements OnInit {
     this.accountService.signIn(model).subscribe(data => {
       if (data.Email) {
         this.routeTo.navigate([ this.returnUrl ]);
+      } else {
+        this.error = 'Invalid Email/Password entered';
       }
     });
   }

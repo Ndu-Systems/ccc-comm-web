@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/_services/account';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SignUpModel } from 'src/app/_models';
+import { SignUpModel, PROVINCES } from 'src/app/_models';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,6 +14,7 @@ export class SignUpComponent implements OnInit {
   hidePassword = true;
   error: string;
   dobDate = new Date(1990, 0, 1);
+  provinces = PROVINCES;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
@@ -37,6 +38,10 @@ export class SignUpComponent implements OnInit {
         Validators.required
       ])],
       CreateUserId: ['sys', Validators.required],
+      Address: [null, Validators.required],
+      City: [null, Validators.required],
+      Province: [null, Validators.required],
+      PostCode: [null],
       StatusId: [1]
     });
   }
