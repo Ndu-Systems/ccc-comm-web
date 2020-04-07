@@ -33,6 +33,7 @@ export class TakingSelftestComponent implements OnInit {
   seekMedicalHelp: boolean;
   testDetails: string;
   riskclass: string;
+  progress = '5%';
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,
@@ -51,7 +52,7 @@ export class TakingSelftestComponent implements OnInit {
     this.testingService.test.subscribe(test => {
       if (test) {
         if (test.Step === 'Done') {
-          this.calculateRisk();
+          // this.calculateRisk();
         }
         if (test.Step === 'Saved') {
           this.showSaved();
@@ -72,6 +73,7 @@ export class TakingSelftestComponent implements OnInit {
               test.Step = 'Done';
               this.testingService.updateState(this.test);
               this.step = 'done';
+              this.calculateRisk();
               return;
             }
 
@@ -176,6 +178,10 @@ export class TakingSelftestComponent implements OnInit {
   onSecondaryAnswer(a) {
 
     if (this.currentQuestion) {
+      if (this.test.Answers.length > this.questions.length) {
+        this.taketestagain();
+        return false;
+      }
       const answer: Answer = {
         QuestionId: '',
         Answer: '',
@@ -195,6 +201,7 @@ export class TakingSelftestComponent implements OnInit {
       this.isSecondary = false;
       this.secondaryAnswer = '';
       this.testingService.updateState(this.test);
+      this.progress = `${(this.test.Answers.length / this.questions.length) * 100}%`;
     }
   }
 
@@ -219,6 +226,7 @@ export class TakingSelftestComponent implements OnInit {
     this.seekMedicalHelp = false;
     this.riskLevel = '';
     this.riskclass = '';
+    this.progress = '2%';
     this.resetQuestionClasses();
   }
 

@@ -2,7 +2,7 @@
 <div class="taking-selftest">
   <div class="testing-box">
     <div class="progress-bar">
-      <div class="progress"></div>
+      <div class="progress" [ngStyle]="{width:progress }"></div>
     </div>
 
     <div class="nav-form">
@@ -28,7 +28,7 @@
 
       <div class="form" *ngIf="step != 1">
         <h1 class="heading">
-          {{heading}}
+          {{heading}} 
         </h1>
         <div class="question">
           <h3>
