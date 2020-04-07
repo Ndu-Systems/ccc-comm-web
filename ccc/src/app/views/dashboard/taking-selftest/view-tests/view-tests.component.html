@@ -1,0 +1,63 @@
+<app-bread-crump [baseName]="name" [baseSubtext]="subText"></app-bread-crump>
+<div class="col-1-of-2">
+  <div class="search">
+  </div>
+  <!-- <a routerLink="/dashboard/add-patient">
+    <button mat-stroked-button class="stroked" color="">+ New Patient</button>
+  </a> -->
+</div>
+<div *ngIf="tests">
+  <div class="filters">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Filter by risk</mat-label>
+      <select [(ngModel)]="filterRisk" matNativeControl required>
+        <option value="">all</option>
+        <option value="high">High Risk</option>
+        <option value="medium">Medium Risk</option>
+        <option value="low">Low Risk</option>
+      </select>
+      <mat-icon matSuffix>filter_list</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="main">
+
+    <div class="header">
+      <div class="patient-name">
+        Name
+      </div>
+      <div class="patient-name">
+        City
+      </div>
+      <div class="patient-name">
+        Address
+      </div>
+      <div class="patient-name">
+        Date
+      </div>
+      <div class="patient-name">
+        Risk Status
+      </div>
+    </div>
+  
+    <div class="data" *ngFor="let item of tests | filterstatus: filterRisk">
+      <div>
+        {{item.User?.FirstName}}
+      </div>
+      <div>
+        {{item.User?.City}}
+      </div>
+      <div>
+        {{item.User?.Address}}
+      </div>
+      <div>
+        {{item.CreateDate | date}}
+      </div>
+      <div>
+        <b>
+          {{item.Outcome}}
+        </b>
+      </div>
+    </div>
+  </div>
+ 
+</div>

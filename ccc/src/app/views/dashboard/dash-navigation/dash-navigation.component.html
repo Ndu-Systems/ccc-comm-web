@@ -4,7 +4,8 @@
       <img src="assets/images/home/logo.svg" alt="logo main">
     </a>
     <a routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">home</a>
-    <a routerLink="/dashboard/test" routerLinkActive="active-link" >corona test</a>
+    <a routerLink="/dashboard/test" routerLinkActive="active-link" >Take a test</a>
+    <a routerLink="/dashboard/view-tests" routerLinkActive="active-link" >View tests</a>
     <a routerLink="/dashboard/patients" routerLinkActive="active-link" >patients</a>
     <a routerLink="/dashboard/configurations" routerLinkActive="active-link" >configuration</a>
     <span class="example-spacer"></span>
@@ -20,7 +21,7 @@
     <li><a routerLink="/dashboard" (click)="toggleNave()">
       home</a></li>
     <li><a routerLink="/dashboard/test" (click)="toggleNave()">
-      corona test</a></li>
+      Take a test</a></li>
     <li><a routerLink="/dashboard/patients" (click)="toggleNave()">
       patients</a></li>
   </ul>

@@ -14,6 +14,8 @@ import { PatientsComponent, AddPatientComponent } from './patients';
 import { ConfigurationHomeComponent } from './configuration-home';
 import { QuestionsComponent, AddQuestionComponent } from './questions';
 import { ActionsComponent, TableDataComponent } from './shared';
+import { ViewTestsComponent } from './taking-selftest/view-tests/view-tests.component';
+import { FilterStatusPipe } from 'src/app/_pipes/filter-status.pipe';
 
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
       { path: 'configurations', component: ConfigurationHomeComponent },
       { path: 'questions', component: QuestionsComponent },
       { path: 'add-question', component: AddQuestionComponent },
+      { path: 'view-tests', component: ViewTestsComponent },
     ]
   }
 ];
@@ -48,7 +51,9 @@ export const declarations = [
   ConfigurationHomeComponent,
   QuestionsComponent,
   AddQuestionComponent,
-  ActionsComponent
+  ActionsComponent,
+  ViewTestsComponent,
+  FilterStatusPipe
 
 ];
 
