@@ -3,6 +3,10 @@
 .form {
   .heading {
     color: $danger;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.7rem;
+    }
   }
 
   .question {
@@ -10,24 +14,54 @@
     padding: .8rem 1rem;
     border-radius: 10rem;
 
+    @media only screen and (max-width: 600px) {
+      padding: .4rem;
+      border-radius: .5rem;
+    }
+
     h3 {
       color: $black;
       margin: 0;
       font-weight: 600;
       font-size: 1rem;
+
+      @media only screen and (max-width: 600px) {
+        font-size: .855rem;
+      }
     }
   }
 
   .options {
     padding: 2rem;
 
+    @media only screen and (max-width: 600px) {
+      padding: .4rem;
+      padding-top: 2rem;
+    }
+
     .cols-2 {
       display: grid;
-      grid-template-columns: repeat(2, 50%);
+      grid-template-columns: 50% auto;
+
+      @media only screen and (max-width: 600px) {
+
+        grid-template-columns: 40% auto;
+      }
     }
 
     .image {
       height: 6rem;
+
+      // background: rgb(216, 209, 209);
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+      }
+
+      img {
+        @media only screen and (max-width: 600px) {
+          width: 4.5rem;
+        }
+      }
     }
 
     .actions {
@@ -41,6 +75,12 @@
         border: none;
         color: $white;
         cursor: pointer;
+
+        @media only screen and (max-width: 600px) {
+          padding: .3rem 1.2rem;
+          margin: 0rem;
+
+        }
       }
 
       .secondary {

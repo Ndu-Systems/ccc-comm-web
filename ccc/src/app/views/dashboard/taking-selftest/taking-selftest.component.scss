@@ -5,7 +5,7 @@
   padding: 1rem;
 
   @media only screen and (max-width: 600px) {
-    padding: .2rem;
+    padding: .1rem 1rem;
   }
 
   .testing-box {
@@ -43,6 +43,7 @@
 
       @media only screen and (max-width: 600px) {
         grid-template-columns: 100%;
+        padding: .6rem;
       }
 
       .nav {
@@ -109,18 +110,35 @@
       .form {
         .heading {
           color: $danger;
+
+          @media only screen and (max-width: 600px) {
+            font-size: 1.7rem;
+          }
         }
+
 
         .question {
           background: $cloud-white;
           padding: .8rem 1rem;
           border-radius: 10rem;
+          min-height: 3rem;
+          position: relative;
+
+          @media only screen and (max-width: 600px) {
+            padding: .6rem;
+            border-radius: .5rem;
+          }
 
           h3 {
             color: $black;
             margin: 0;
             font-weight: 600;
             font-size: 1rem;
+
+            @media only screen and (max-width: 600px) {
+              font-size: .855rem;
+
+            }
           }
         }
 
@@ -138,6 +156,11 @@
 
               p {
                 font-weight: 600;
+
+                @media only screen and (max-width: 600px) {
+                  font-size: .855rem;
+
+                }
               }
             }
 
@@ -154,6 +177,12 @@
                 color: $white;
                 cursor: pointer;
                 margin: 0 2rem;
+
+                @media only screen and (max-width: 600px) {
+                  padding: .4rem;
+                  margin: 0 .2rem;
+
+                }
               }
 
               .danger {
@@ -213,8 +242,27 @@
 
 .risk-level {
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 1.5rem;
   text-transform: capitalize;
   position: relative;
-  top: 10px;
+  top: 2px;
+}
+
+.risk-low {
+  color: $success;
+}
+
+.risk-med {
+  color: $warn;
+}
+
+.risk-high {
+  color: $danger;
+}
+
+.yesno {
+  @media only screen and (max-width: 600px) {
+    padding: .4rem 1.4rem !important;
+    margin: .4 2rem !important;
+  }
 }

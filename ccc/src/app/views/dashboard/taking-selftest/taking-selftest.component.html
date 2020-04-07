@@ -32,7 +32,7 @@
         </h1>
         <div class="question">
           <h3>
-            {{question}} <span class="risk-level">{{riskLevel}}</span>
+            {{question}} <span class="risk-level" [ngClass]="riskclass">{{riskLevel}}</span>
           </h3>
         </div>
 
@@ -43,8 +43,8 @@
             </div>
 
             <div class="actions" *ngIf="!isSecondary">
-              <button class="cta primary danger" (click)="answer('yes')">Yes</button>
-              <button class="cta primary"  (click)="answer('no')">No</button>
+              <button class="cta primary danger yesno" (click)="answer('yes')">Yes</button>
+              <button class="cta primary yesno"  (click)="answer('no')">No</button>
             </div>
             <div class="secondary-question" *ngIf="isSecondary">
               <mat-radio-group *ngIf="currentQuestion" class="form-group" [(ngModel)]="secondaryAnswer" aria-label="Select an option">

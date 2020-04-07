@@ -32,6 +32,7 @@ export class TakingSelftestComponent implements OnInit {
   active: string;
   seekMedicalHelp: boolean;
   testDetails: string;
+  riskclass: string;
   constructor(
     private testingService: TestingService,
     private questionService: QuestionService,
@@ -107,17 +108,22 @@ export class TakingSelftestComponent implements OnInit {
 
     if (severityMed === 0 && severityHigh === 0) {
       this.riskLevel = 'low';
+      this.riskclass = 'risk-low';
+
       this.testDetails = `Hey there, please take all the necessary precautions as instructed by the department of health and the
       state government.`;
     }
     if (severityHigh === 0 && severityMed > 0) {
       this.riskLevel = 'medium';
+      this.riskclass = 'risk-med';
+
       this.seekMedicalHelp = true;
       this.testDetails = `Hey there, we don't want to raise any alarms but can you kindly
-      make your way to the nearest medical facility or contact the COVID-19 helpline (toll-free) for more information.`
+      make your way to the nearest medical facility or contact the COVID-19 helpline (toll-free) for more information.`;
     }
     if (severityHigh > 0) {
       this.riskLevel = 'high';
+      this.riskclass = 'risk-high';
       this.testDetails = `Hey there, contact the COVID-19 helpline (toll-free) for more information of where to from here,
       please self quarantine until you have taken the real test with real professionals.`
       this.seekMedicalHelp = true;
@@ -212,6 +218,7 @@ export class TakingSelftestComponent implements OnInit {
     this.isSecondary = false;
     this.seekMedicalHelp = false;
     this.riskLevel = '';
+    this.riskclass = '';
     this.resetQuestionClasses();
   }
 

@@ -3,16 +3,32 @@
 .dashboard-bread-crump {
   padding: .8rem;
 
+  @media only screen and (max-width: 600px) {
+    padding: .2rem;
+
+  }
+
   .bread-crump {
     display: grid;
     grid-template-columns: 93% auto;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 80% auto;
+      margin-top: .5rem;
+
+    }
 
     ul {
-          padding: 0;
+      padding: 0;
+
+      @media only screen and (max-width: 600px) {
+        margin: 0 1rem;
+      }
+
       li {
         display: inline-block;
         margin-left: 0rem;
         opacity: .5;
+
         .heading {
           font-size: 1rem;
         }
