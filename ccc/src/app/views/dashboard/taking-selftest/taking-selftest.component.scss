@@ -4,11 +4,21 @@
   background: $cloud-white;
   padding: 1rem;
 
+  @media only screen and (max-width: 600px) {
+    padding: .2rem;
+  }
+
   .testing-box {
     background: $white;
     width: 66%;
     margin: 2rem auto;
     border-radius: 10px;
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      margin: 2rem auto;
+
+    }
 
     .progress-bar {
       background: $darker-grey;
@@ -31,9 +41,22 @@
       grid-template-columns: 30% auto;
       padding: 2rem;
 
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+      }
+
       .nav {
         border-right: 1px solid $darker-grey;
         margin: 3rem 1rem;
+
+        @media only screen and (max-width: 600px) {
+          position: fixed;
+          display: flex;
+          left: 5%;
+          bottom: 0;
+          background: #fff;
+
+        }
 
         .nav-item {
           display: grid;
@@ -50,6 +73,10 @@
             padding-top: .4rem;
             font-weight: 800;
             color: $darker-grey;
+
+            @media only screen and (max-width: 600px) {
+              margin-left: 1rem;
+            }
           }
 
           span.active {
@@ -66,9 +93,13 @@
             font-weight: 600;
             color: $lighter-grey;
             border: none;
+
+            @media only screen and (max-width: 600px) {
+              display: none;
+            }
           }
 
-          .label.active{
+          .label.active {
             color: $purple;
             border: none;
           }
@@ -104,7 +135,8 @@
               img {
                 height: 7rem;
               }
-              p{
+
+              p {
                 font-weight: 600;
               }
             }
@@ -140,12 +172,12 @@
               width: 100%;
               margin: 0 auto;
 
-              .form-group{
+              .form-group {
                 display: block;
                 // background: red;
                 width: 100%;
 
-                .input-radio{
+                .input-radio {
                   display: block;
                   margin-top: .5rem;
                 }
@@ -154,8 +186,9 @@
               input {
                 padding: .5rem 1rem;
                 border-radius: 15px;
-                border: 1px solid  $grey;
+                border: 1px solid $grey;
               }
+
               .cta {
                 padding: .4rem 1.4rem;
                 border-radius: 15px;
@@ -178,11 +211,10 @@
 }
 
 
-.risk-level{
+.risk-level {
   font-weight: 900;
   font-size: 3rem;
   text-transform: capitalize;
   position: relative;
   top: 10px;
 }
-
