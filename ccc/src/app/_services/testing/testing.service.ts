@@ -52,7 +52,12 @@ export class TestingService {
   }
   getAll(statusId) {
     return this.http.get<any>(`${this.url}/api/test/get-tests.php?StatusId=${statusId}`).subscribe(data => {
-      this.updateAllTestsState(data);
+      this.updateAllTestsState(data || []);
+    });
+  }
+  getMyTests(userId) {
+    return this.http.get<any>(`${this.url}/api/test/get-user-tests.php?UserProfileId=${userId}`).subscribe(data => {
+      this.updateAllTestsState(data || []);
     });
   }
 

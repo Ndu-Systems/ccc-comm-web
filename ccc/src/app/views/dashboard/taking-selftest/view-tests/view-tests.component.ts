@@ -11,7 +11,6 @@ import { SEVERITY_CONSTANTS } from 'src/app/_models/severity-constants';
 export class ViewTestsComponent implements OnInit {
 
   tests: Test[] = [];
-  displayedColumns: string[] = ['FirstName', 'contactnumber', 'email', 'age', 'address', 'enrollmentDate', 'status'];
   name = 'Tests';
   subText = 'List Test';
   severityList = SEVERITY_CONSTANTS;

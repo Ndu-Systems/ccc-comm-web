@@ -78,8 +78,6 @@ export class PieChartComponent implements OnInit {
       });
     });
 
-    console.log(answers);
-
     this.symptomsStat = {
       labels: [],
       datasets: [

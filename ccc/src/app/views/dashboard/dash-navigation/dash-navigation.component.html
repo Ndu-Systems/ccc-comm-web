@@ -3,11 +3,12 @@
     <a class="logo" routerLink="/dashboard">
       <img src="assets/images/home/logo.svg" alt="logo main">
     </a>
-    <a routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">home</a>
-    <a routerLink="/dashboard/test" routerLinkActive="active-link" >Take a test</a>
-    <a routerLink="/dashboard/view-tests" routerLinkActive="active-link" >View tests</a>
-    <a routerLink="/dashboard/patients" routerLinkActive="active-link" >patients</a>
-    <a routerLink="/dashboard/configurations" routerLinkActive="active-link" >configuration</a>
+    <a routerLink="/dashboard" routerLinkActive="active-link" *ngIf="isAdmin()" [routerLinkActiveOptions]="{exact: true}">home</a>
+    <a routerLink="/dashboard/test" routerLinkActive="active-link" *ngIf="!isAdmin()">Take a test</a>
+    <a routerLink="/dashboard/view-tests"  *ngIf="isAdmin()" routerLinkActive="active-link" >View tests</a>
+    <a routerLink="/dashboard/my-view-tests"  *ngIf="!isAdmin()" routerLinkActive="active-link" >View my tests history</a>
+    <a routerLink="/dashboard/patients"  *ngIf="isAdmin()" routerLinkActive="active-link" >View patients</a>
+    <a routerLink="/dashboard/configurations"  *ngIf="isAdmin()" routerLinkActive="active-link" >configuration</a>
     <span class="example-spacer"></span>
     <a class="sign-out" (click)="signOut()">
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">power_settings_new</mat-icon>
@@ -18,9 +19,10 @@
 
 <mat-toolbar class="mobile menu-items">
   <ul>
-    <li><a routerLink="/dashboard" (click)="toggleNave()">
+    <li  *ngIf="isAdmin()"><a routerLink="/dashboard" (click)="toggleNave()">
       home</a></li>
-    <li><a routerLink="/dashboard/test" (click)="toggleNave()">
+
+    <li  *ngIf="!isAdmin()"><a routerLink="/dashboard/test" (click)="toggleNave()">
       Take a test</a></li>
     <li><a routerLink="/dashboard/patients" (click)="toggleNave()">
       patients</a></li>

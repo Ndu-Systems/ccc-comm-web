@@ -48,7 +48,6 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   onSubmit(model: UserProfileModel) {
-    console.log(model);
     const test: Test = initTest;
     test.User = model;
     test.Step = 2;

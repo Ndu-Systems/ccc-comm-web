@@ -16,6 +16,7 @@ import { QuestionsComponent, AddQuestionComponent } from './questions';
 import { ActionsComponent, TableDataComponent } from './shared';
 import { ViewTestsComponent } from './taking-selftest/view-tests/view-tests.component';
 import { FilterStatusPipe } from 'src/app/_pipes/filter-status.pipe';
+import { MyViewTestsComponent } from './taking-selftest/my-view-tests/my-view-tests.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'questions', component: QuestionsComponent },
       { path: 'add-question', component: AddQuestionComponent },
       { path: 'view-tests', component: ViewTestsComponent },
+      { path: 'my-view-tests', component: MyViewTestsComponent },
     ]
   }
 ];
@@ -41,8 +43,8 @@ export const declarations = [
   DashNavigationComponent,
   TakingSelftestComponent,
   PersonalDetailsComponent,
-  BreadCrumpComponent,
   QuickStatsComponent,
+  BreadCrumpComponent,
   TestResultComponent,
   PieChartComponent,
   TableDataComponent,
@@ -53,7 +55,8 @@ export const declarations = [
   AddQuestionComponent,
   ActionsComponent,
   ViewTestsComponent,
-  FilterStatusPipe
+  FilterStatusPipe,
+  MyViewTestsComponent
 
 ];
 

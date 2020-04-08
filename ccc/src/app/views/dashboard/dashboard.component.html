@@ -14,22 +14,25 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard" (click)="snav.toggle()">
+        <a *ngIf="isAdmin()" mat-list-item routerLink="/dashboard" (click)="snav.toggle()">
           <img src="assets/images/dashboard/home.svg" alt="home_icon">&nbsp;
           Home</a>
-        <a mat-list-item routerLink="/dashboard/test" (click)="snav.toggle()">
+        <a *ngIf="!isAdmin()" mat-list-item routerLink="/dashboard/test" (click)="snav.toggle()">
           <img src="assets/images/dashboard/test.svg" alt="test_icon">&nbsp;
           Take a test</a>
-        <a mat-list-item routerLink="/dashboard/view-tests" (click)="snav.toggle()">
+        <a *ngIf="isAdmin()" mat-list-item routerLink="/dashboard/view-tests" (click)="snav.toggle()">
           <img src="assets/images/dashboard/tests.svg" alt="tests_icon">&nbsp;
           View tests</a>
-        <a mat-list-item routerLink="/dashboard/patients" (click)="snav.toggle()">
+        <a *ngIf="!isAdmin()" mat-list-item routerLink="/dashboard/my-view-tests" (click)="snav.toggle()">
+          <img src="assets/images/dashboard/tests.svg" alt="tests_icon">&nbsp;
+          View my tests history</a>
+        <a *ngIf="isAdmin()" mat-list-item routerLink="/dashboard/patients" (click)="snav.toggle()">
           <img src="assets/images/dashboard/patients.svg" alt="patients_icon">&nbsp;
           View Patients</a>
-        <a mat-list-item routerLink="/dashboard/configurations" (click)="snav.toggle()">
+        <a *ngIf="isAdmin()" mat-list-item routerLink="/dashboard/configurations" (click)="snav.toggle()">
           <img src="assets/images/dashboard/settings.svg" alt="config_icon">&nbsp;
           Configuration</a>
-        <a mat-list-item (click)="signOut()">
+        <a *ngIf="isAdmin()" mat-list-item (click)="signOut()">
           <img src="assets/images/dashboard/power.svg" alt="signout_icon">&nbsp;
           sign-out
         </a>

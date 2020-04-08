@@ -91,7 +91,6 @@ export class TakingSelftestComponent implements OnInit {
 
   }
   calculateRisk() {
-    console.log(this.test);
     let severityHigh = 0;
     let severityMed = 0;
     let severityLow = 0;

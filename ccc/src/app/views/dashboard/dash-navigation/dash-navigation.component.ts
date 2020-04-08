@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from 'src/app/_services/account';
+import { UserProfileModel } from 'src/app/_models';
 
 @Component({
   selector: 'app-dash-navigation',
@@ -7,13 +8,19 @@ import { AccountService } from 'src/app/_services/account';
   styleUrls: ['./dash-navigation.component.scss']
 })
 export class DashNavigationComponent implements OnInit {
-  toggleNave
+  toggleNave;
+  user: UserProfileModel;
   constructor(
     private accountService: AccountService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.user = this.accountService.currentUserProfileValue;
+  }
   signOut() {
     this.accountService.signOut();
+  }
+  isAdmin() {
+    return Number(this.user.RoleId) === 2;
   }
 }

@@ -1,0 +1,71 @@
+<app-bread-crump [baseName]="name" [baseSubtext]="subText"></app-bread-crump>
+<div class="col-1-of-2">
+  <div class="search">
+  </div>
+  <!-- <a routerLink="/dashboard/add-patient">
+    <button mat-stroked-button class="stroked" color="">+ New Patient</button>
+  </a> -->
+</div>
+<div *ngIf="tests && tests.length > 0; else notFound">
+  <div class="filters">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Filter by risk</mat-label>
+      <mat-select [(ngModel)]="filterRisk" matNativeControl>
+        <mat-option value="">all</mat-option>
+        <mat-option value="High">High</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="Low">Low</mat-option>
+      </mat-select>
+      <mat-icon matSuffix>filter_list</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="main">
+    <div class="header">
+      <div class="patient-name">
+        Name
+      </div>
+      <div class="patient-name">
+        City
+      </div>
+      <div class="patient-name">
+        Address
+      </div>
+      <div class="patient-name">
+        Date
+      </div>
+      <div class="patient-name">
+        Risk Status
+      </div>
+    </div>
+
+    <div class="data" *ngFor="let item of tests | filterstatus: filterRisk">
+      <div>
+        {{item.User?.FirstName}}
+      </div>
+      <div>
+        {{item.User?.City}}
+      </div>
+      <div>
+        {{item.User?.Address}}
+      </div>
+      <div>
+        {{item.CreateDate | date}}
+      </div>
+      <div class="tac">
+        <span class="status-badge risk-low" *ngIf="item.Outcome == 'low'">{{item.Outcome}}</span>
+        <span class="status-badge risk-med" *ngIf="item.Outcome == 'medium'">{{item.Outcome}}</span>
+        <span class="status-badge risk-high" *ngIf="item.Outcome == 'high'">{{item.Outcome}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+  <p>
+    <b>Your account is ready.</b>
+    Well done, you all set, please take your first test <a routerLink="/dashboard/test" > here</a>
+  </p>
+  </div>
+</ng-template>

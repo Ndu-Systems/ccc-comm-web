@@ -11,7 +11,6 @@ export class ActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.actions);
   }
 
 }
