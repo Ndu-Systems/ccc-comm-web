@@ -1,6 +1,5 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
-
     <ng-container matColumnDef="fullname">
       <th mat-header-cell *matHeaderCellDef> Fullname </th>
       <td mat-cell *matCellDef="let element"> {{element?.FirstName}} {{element?.Surname}} </td>
@@ -42,4 +41,33 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div class="mobile" *ngIf="source">
+  <span *ngFor="let element of source" class="table-cards">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{element?.FirstName}} {{element?.Surname}} </mat-card-title>
+        <mat-card-subtitle>{{element?.ContactNumber}} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <h1 class="title">
+          email:
+          <span class="value">{{element?.Email}}</span>
+        </h1>
+        <h1 class="title">
+          Age:
+          <span class="value">{{element?.Age}}</span>
+        </h1>
+        <h1 class="title">
+          address:
+          <span class="value"> {{element?.Address}}</span>
+        </h1>
+        <h1 class="title">
+          Enrollment date:
+          <span class="value">{{element?.CreateDate}}</span>
+        </h1>
+      </mat-card-content>
+    </mat-card>
+  </span>
 </div>
