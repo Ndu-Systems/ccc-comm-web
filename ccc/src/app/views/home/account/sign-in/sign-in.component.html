@@ -1,9 +1,7 @@
-<div class="sign-in">
-  <div class="form">
+<div class="account col-1-of-2">
     <div class="form-container">
       <form [formGroup]="rForm">
         <h1 class="form-heading">Get started</h1>
-
         <mat-form-field class="form-group" appearance="outline">
           <mat-label>Email Address</mat-label>
           <input matInput placeholder="Email" formControlName="Email" MatFormFieldControl type="email" required>
@@ -23,8 +21,8 @@
             required</mat-error>
         </mat-form-field>
 
-        <div class="cta">
-          <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">Take a test
+        <div class="cta col-1-of-2">
+          <button mat-button (click)="onSubmit(rForm.value)" [disabled]="!rForm.valid">login
           </button>
           <a routerLink="/sign-up" class="cta">Create a new account</a>
         </div>
@@ -33,5 +31,5 @@
         </div>
       </form>
     </div>
-  </div>
+    <img src="assets/images/home/sign-in-bg.svg" class="banner" alt="account background loading..">
 </div>

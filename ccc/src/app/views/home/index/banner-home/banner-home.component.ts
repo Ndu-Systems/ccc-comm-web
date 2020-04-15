@@ -16,7 +16,7 @@ export class BannerHomeComponent implements OnInit {
   }
 
   getStarted(){
-    this.routeTo.navigate(['/get-started']);
+    this.routeTo.navigate(['/login']);
   }
 
 }

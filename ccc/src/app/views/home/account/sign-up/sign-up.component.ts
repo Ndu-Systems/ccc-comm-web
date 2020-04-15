@@ -56,9 +56,10 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(model: SignUpModel) {
     model.Age = this.updatedAge;
+    console.log(model.DOB);
     this.accountService.signUp(model).subscribe(data => {
       if (data.Email) {
-        this.routeTo.navigate(['/get-started']);
+        this.routeTo.navigate(['/login']);
       } else {
         this.error = 'An error occurred, please contact support desk';
       }
