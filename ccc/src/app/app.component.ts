@@ -9,12 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   constructor(private router: Router) { }
-  ngOnInit(): void {
-    // if (environment.production) {
-    //   if (location.protocol === 'http:') {
-    //     window.location.href = location.href.replace('http', 'https');
-    //   }
-    // }
+  ngOnInit() {
+
     // scroll up
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {

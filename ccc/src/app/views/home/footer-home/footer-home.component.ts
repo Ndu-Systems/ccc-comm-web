@@ -14,7 +14,7 @@ export class FooterHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  getStarted(){
-    this.routeTo.navigate(['/get-started']);
+  getStarted() {
+    this.routeTo.navigate(['/login']);
   }
 }
